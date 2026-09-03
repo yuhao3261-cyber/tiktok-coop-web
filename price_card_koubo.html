@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:750px;background:#0a0a14;color:#e8e8f0;font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+       background-image:radial-gradient(ellipse 95% 40% at 50% -6%,rgba(139,92,246,.32),transparent 70%),
+       radial-gradient(ellipse 55% 28% at 88% 100%,rgba(236,72,153,.18),transparent 70%),
+       radial-gradient(ellipse 55% 28% at 6% 50%,rgba(34,211,238,.1),transparent 70%)}
+  .top{border-bottom:1px solid rgba(139,92,246,.25);padding:44px 46px 32px;text-align:center;
+       background:linear-gradient(180deg,rgba(139,92,246,.09),transparent)}
+  .badge{display:inline-flex;align-items:center;gap:9px;font-size:19px;color:#7ee8f5;border:1.5px solid rgba(34,211,238,.5);
+         padding:7px 24px;border-radius:999px;letter-spacing:4px;margin-bottom:22px}
+  .badge .dot{width:8px;height:8px;border-radius:50%;background:#22d3ee;box-shadow:0 0 12px #22d3ee}
+  h1{font-size:57px;font-weight:900;letter-spacing:2px;line-height:1.25}
+  h1 .g{background:linear-gradient(90deg,#22d3ee,#8b5cf6 45%,#ec4899);background-size:200% 100%;
+        -webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{font-size:22px;color:#9a9ab0;margin-top:10px}
+  .sub b{color:#d8d8e8}
+  .body{padding:36px 40px 0}
+  .item{position:relative;display:flex;align-items:center;gap:24px;border-radius:22px;padding:28px 30px;margin-bottom:20px;
+        background:linear-gradient(160deg,#181831,#12121f);border:1.5px solid rgba(139,92,246,.32)}
+  .item::before{content:"";position:absolute;inset:-1.5px;border-radius:22px;padding:2px;pointer-events:none;opacity:.9;
+                background:conic-gradient(from 210deg,transparent 0 62%,#22d3ee 82%,#8b5cf6 94%,transparent 100%);
+                -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+  .item.hot{border-color:rgba(236,72,153,.55)}
+  .item.hot::before{background:conic-gradient(from 30deg,transparent 0 62%,#ec4899 82%,#f472b6 94%,transparent 100%)}
+  .item .name{font-size:28px;font-weight:800;flex:1}
+  .item .price{font-size:40px;font-weight:900;white-space:nowrap;
+               background:linear-gradient(90deg,#22d3ee,#8b5cf6,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .item .price small{font-size:19px;color:#9a9ab0;-webkit-text-fill-color:#9a9ab0;font-weight:400}
+  .item .desc{font-size:18.5px;color:#9a9ab0;margin-top:8px}
+  .item .tag{position:absolute;top:-13px;right:28px;font-size:15px;font-weight:800;color:#0a0a14;padding:5px 17px;border-radius:999px;
+             background:linear-gradient(90deg,#22d3ee,#8b5cf6)}
+  .item.hot .tag{background:linear-gradient(90deg,#f472b6,#ec4899)}
+  .discount{border:1.5px dashed rgba(236,72,153,.55);border-radius:20px;padding:20px 26px;margin:6px 0 20px;background:rgba(236,72,153,.05)}
+  .discount h3{font-size:23px;margin-bottom:6px;color:#fff}
+  .discount p{font-size:18.5px;color:#b9b9cc;line-height:1.6}
+  .notes{border:1.5px solid rgba(139,92,246,.3);border-radius:20px;padding:24px 26px;
+         background:linear-gradient(160deg,rgba(18,18,31,.85),rgba(18,18,31,.5))}
+  .notes h3{font-size:24px;margin-bottom:14px}
+  .notes h3 span{background:linear-gradient(90deg,#22d3ee,#8b5cf6);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .notes p{font-size:19px;color:#c3c3d6;margin-bottom:9px;line-height:1.55;padding-left:32px;position:relative}
+  .notes p::before{content:"";position:absolute;left:0;top:5px;width:19px;height:19px;border-radius:6px;
+                   background:linear-gradient(135deg,#8b5cf6,#22d3ee);display:flex}
+  .notes p::after{content:"✓";position:absolute;left:3px;top:4px;font-size:13px;color:#0a0a14;font-weight:900}
+  .notes p b{color:#fff}
+  .contact{margin-top:24px;text-align:center;border-radius:22px;padding:26px;
+           background:linear-gradient(180deg,rgba(139,92,246,.17),rgba(18,18,31,.94));border:1.5px solid rgba(139,92,246,.45)}
+  .contact .c1{font-size:26px;font-weight:800;margin-bottom:6px}
+  .contact .c2{font-size:21px;color:#7ee8f5;letter-spacing:1px}
+  .foot{margin-top:22px;text-align:center;font-size:16px;color:#6a6a80;padding-bottom:22px}
+</style>
+</head>
+<body>
+  <div class="top">
+    <div class="badge"><span class="dot"></span>TIKTOK 实拍+口播</div>
+    <h1>拍摄剪辑 + 口播 <span class="g">报价表</span></h1>
+    <div class="sub">全实拍 · <b>真人口播</b> · 产品演示带货</div>
+  </div>
+  <div class="body">
+    <div class="item">
+      <span class="tag">⭐ 基础档</span>
+      <div><div class="name">15-30 秒成片</div><div class="desc">全实拍+口播 · 产品演示 · 快速种草</div></div>
+      <div class="price">¥60-80<small> RMB/条</small></div>
+    </div>
+    <div class="item hot">
+      <span class="tag">🔥 主流爆量</span>
+      <div><div class="name">30-60 秒成片</div><div class="desc">全实拍+口播 · 场景化演示 · 完整种草链路</div></div>
+      <div class="price">¥100-120<small> RMB/条</small></div>
+    </div>
+    <div class="discount">
+      <h3>📦 量大优惠</h3>
+      <p>批量下单 / 月度合作，<b>价格可商谈</b>，量大从优，长期合作优先排期</p>
+    </div>
+    <div class="notes">
+      <h3><span>服务说明</span></h3>
+      <p><b>全实拍：</b>真实产品 + 真实场景演示（切配/烹饪/收纳等）</p>
+      <p><b>真人口播：</b>专业文案 + 现场口播录制，转化导向</p>
+      <p><b>剪辑包装：</b>节奏卡点 · 字幕 · 音效 · BGM 一条龙</p>
+      <p>每支片子含 <b>1 次免费修改</b>，超出协商计费</p>
+      <p>如需外拍场景：<b>来回路费 + 场景费用</b>（门店/外景/场地租赁）<b>由甲方负责支出</b></p>
+      <p>竖屏 1080×1920 · MP4 交付 · <b>样品到达起算交付日期</b></p>
+      <p>单次预付 50% · 月度预付 30% · 量大从优可谈</p>
+    </div>
+    <div class="contact">
+      <div class="c1">龚先生 · 对接合作</div>
+      <div class="c2">📞 13318499088 &nbsp;|&nbsp; 💬 微信 1905396071</div>
+    </div>
+    <div class="foot">个人团队直营 · 实拍质量对标机构 · 合作合法有效</div>
+  </div>
+</body>
+</html>

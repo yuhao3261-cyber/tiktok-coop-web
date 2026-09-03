@@ -234,7 +234,7 @@
       <a class="btn btn-ghost" href="#contact">咨询合作 →</a>
     </div>
     <div class="stats" id="statsBox">
-      <div class="stat"><b>¥40 起</b><small>多品类实拍单条价</small></div>
+      <div class="stat"><b>¥60 起</b><small>通用实拍单条价</small></div>
       <div class="stat"><b>¥60 起</b><small>实拍口播单条价</small></div>
       <div class="stat"><b>¥80 起</b><small>AI+剪辑单条价</small></div>
       <div class="stat"><b>500+</b><small>条/月 产能</small></div>
@@ -504,7 +504,7 @@
   }
 
   // 价格数字目标值（三线全量）
-  const PRICE = { '.n1': 40, '.n2': 60, '.n3': 30, '.n4': 20, '.n5': 20000,
+  const PRICE = { '.n1': 60, '.n2': 80, '.n3': 30, '.n4': 20, '.n5': 20000,
                   '.n6': 60, '.n7': 80, '.n8': 100, '.n9': 120,
                   '.n10': 80, '.n11': 120, '.n12': 2400 };
   const io = new IntersectionObserver(es => {
@@ -567,7 +567,7 @@
   setTimeout(function () {
     try {
       document.querySelectorAll('.hide,.stat,.tier,.deal,.panel,.flow,.srv,.contact-card').forEach(function (el) { el.classList.add('in'); });
-      var map = { '.n1': 40, '.n2': 60, '.n3': 30, '.n4': 20, '.n5': 20000,
+      var map = { '.n1': 60, '.n2': 80, '.n3': 30, '.n4': 20, '.n5': 20000,
                   '.n6': 60, '.n7': 80, '.n8': 100, '.n9': 120,
                   '.n10': 80, '.n11': 120, '.n12': 2400 };
       for (var k in map) { var el = document.querySelector(k); if (el) el.textContent = map[k]; }
