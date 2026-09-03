@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TikTok 短视频代做 · 实拍口播 / AI+剪辑 一站式</title>
+<style>
+  :root{
+    --purple:#8b5cf6; --pink:#ec4899; --cyan:#22d3ee;
+    --bg:#0a0a14; --card:#12121f; --card2:#171728;
+    --txt:#e8e8f0; --mut:#9a9ab0; --line:rgba(139,92,246,.22);
+    --grad:linear-gradient(90deg,#22d3ee,#8b5cf6 45%,#ec4899);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--txt);font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;line-height:1.7;overflow-x:hidden}
+  ::selection{background:rgba(139,92,246,.4)}
+  #prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:200;background:var(--grad);box-shadow:0 0 12px rgba(139,92,246,.8)}
+  .bgfx{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:.18;animation:drift 16s ease-in-out infinite alternate}
+  .orb1{width:55vw;height:55vw;background:#8b5cf6;top:-20vw;left:-14vw}
+  .orb2{width:48vw;height:48vw;background:#ec4899;bottom:-22vw;right:-12vw;animation-delay:-6s}
+  .orb3{width:34vw;height:34vw;background:#22d3ee;top:42%;left:-16vw;opacity:.1;animation-delay:-10s}
+  @keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(5vw,4vh) scale(1.12)}}
+  .gridbg{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.45;
+    background-image:linear-gradient(rgba(139,92,246,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.05) 1px,transparent 1px);
+    background-size:54px 54px;mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 35%,transparent 100%)}
+  .stars{position:fixed;inset:0;pointer-events:none;z-index:0}
+  .star{position:absolute;width:2.5px;height:2.5px;border-radius:50%;background:#fff;opacity:0;animation:twinkle linear infinite}
+  @keyframes twinkle{0%,100%{opacity:0}50%{opacity:.7}}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+      padding:14px 5vw;background:rgba(10,10,20,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .logo{font-weight:800;font-size:18.5px;display:flex;align-items:center;gap:10px}
+  .logo .mark{width:30px;height:30px;border-radius:9px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:15px;color:#0a0a14;font-weight:900}
+  .logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav-right{display:flex;align-items:center;gap:22px}
+  .nav-links{display:flex;gap:24px;list-style:none}
+  .nav-links a{color:var(--mut);text-decoration:none;font-size:14.5px;transition:.25s;position:relative}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--grad);transition:.3s;border-radius:2px}
+  .nav-links a:hover{color:#fff}
+  .nav-links a:hover::after{width:100%}
+  .btn-mini{display:inline-flex;align-items:center;gap:6px;background:var(--grad);color:#0a0a14;font-weight:800;font-size:13.5px;
+            text-decoration:none;padding:8px 20px;border-radius:999px;transition:.3s;box-shadow:0 6px 22px rgba(139,92,246,.35)}
+  .btn-mini:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(236,72,153,.45)}
+  .hamb{display:none;background:none;border:1px solid var(--line);color:#fff;font-size:18px;width:38px;height:34px;border-radius:8px;cursor:pointer}
+
+  section{position:relative;z-index:1;padding:88px 5vw}
+  .wrap{max-width:1120px;margin:0 auto}
+  .sec-tag{display:inline-block;font-size:12.5px;letter-spacing:3px;color:var(--cyan);border:1px solid rgba(34,211,238,.35);
+           padding:4px 14px;border-radius:999px;margin-bottom:14px;text-transform:uppercase}
+  h2{font-size:clamp(26px,3.6vw,38px);font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:14px}
+  h2::before{content:"";width:6px;height:30px;border-radius:4px;background:var(--grad);flex-shrink:0}
+  h2 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{color:var(--mut);max-width:660px;font-size:15.5px;margin-bottom:6px}
+  .hide{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .hide.in{opacity:1;transform:none}
+
+  /* Hero */
+  #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:120px}
+  .hero-inner{text-align:center}
+  .hero-badge{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);background:rgba(139,92,246,.08);
+              padding:8px 20px;border-radius:999px;font-size:13.5px;color:#c9c9dd;margin-bottom:26px}
+  .pulse-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);animation:pulse 1.6s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  h1{font-size:clamp(38px,7vw,72px);font-weight:900;line-height:1.14;letter-spacing:1px;margin-bottom:20px}
+  h1 .g{background:linear-gradient(90deg,#22d3ee,#8b5cf6,#ec4899,#8b5cf6,#22d3ee);background-size:300% 100%;
+        -webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 6s linear infinite}
+  @keyframes flow{to{background-position:300% 0}}
+  .hero-sub{font-size:clamp(15px,2vw,18.5px);color:var(--mut);max-width:680px;margin:0 auto 38px}
+  .hero-sub b{color:#fff}
+  .hero-pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:38px}
+  .pill{font-size:14px;color:#dfdff0;border:1px solid rgba(139,92,246,.4);background:rgba(139,92,246,.08);
+        padding:8px 20px;border-radius:999px;animation:fadeUp .7s ease both}
+  .pill em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  .cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:15.5px;
+       padding:14px 34px;border-radius:12px;transition:.3s;border:none;cursor:pointer}
+  .btn-primary{background:linear-gradient(90deg,#22d3ee,#8b5cf6,#ec4899);background-size:200% 100%;color:#0a0a14;
+               animation:btnFlow 4s linear infinite;box-shadow:0 10px 34px rgba(139,92,246,.4)}
+  @keyframes btnFlow{to{background-position:200% 0}}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 46px rgba(236,72,153,.45)}
+  .btn-ghost{border:1.5px solid var(--line);color:#ddd;background:rgba(255,255,255,.03)}
+  .btn-ghost:hover{border-color:var(--cyan);color:#fff;transform:translateY(-3px)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:62px;max-width:900px;margin-left:auto;margin-right:auto}
+  .stat{background:rgba(18,18,31,.75);border:1px solid var(--line);border-radius:16px;padding:22px 14px;text-align:center;
+        backdrop-filter:blur(8px);transition:.3s;opacity:0;transform:translateY(20px)}
+  .stat.in{opacity:1;transform:none;transition:.6s ease}
+  .stat:hover{transform:translateY(-4px);border-color:rgba(34,211,238,.5)}
+  .stat b{font-size:clamp(20px,2.6vw,27px);font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
+  .stat small{color:var(--mut);font-size:12.5px}
+
+  /* 服务两大块 */
+  .srv-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:38px}
+  .srv{position:relative;overflow:hidden;border-radius:22px;padding:34px 30px;opacity:0;transform:translateY(30px);
+       background:linear-gradient(160deg,var(--card2),var(--card));border:1.5px solid var(--line);transition:.4s}
+  .srv.in{opacity:1;transform:none;transition:.7s ease}
+  .srv:hover{transform:translateY(-6px)}
+  .srv::before{content:"";position:absolute;inset:0;border-radius:22px;padding:1.5px;opacity:.8;pointer-events:none;
+               background:conic-gradient(from var(--ang,0deg),transparent 0 55%,var(--cyan) 75%,var(--purple) 90%,transparent 100%);
+               -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+               animation:spin 6s linear infinite}
+  .srv.pink::before{--ang:180deg;background:conic-gradient(from var(--ang,0deg),transparent 0 55%,var(--pink) 75%,var(--purple) 90%,transparent 100%);animation-duration:4s}
+  @property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+  @keyframes spin{to{--ang:360deg}}
+  .srv .ic{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:16px;
+           background:linear-gradient(135deg,rgba(139,92,246,.25),rgba(34,211,238,.2));border:1px solid var(--line)}
+  .srv h3{font-size:22px;margin-bottom:8px}
+  .srv .tagline{color:var(--cyan);font-size:14px;margin-bottom:14px;font-weight:700;letter-spacing:1px}
+  .srv ul{list-style:none}
+  .srv li{font-size:14.5px;color:#c9c9dd;padding:4px 0;padding-left:24px;position:relative}
+  .srv li::before{content:"✔";position:absolute;left:0;color:var(--cyan);font-weight:900}
+  .srv .more{margin-top:16px;display:inline-flex;align-items:center;gap:6px;color:var(--cyan);text-decoration:none;font-weight:700;font-size:14.5px}
+  .srv .more:hover{text-decoration:underline}
+
+  /* 报价 */
+  .price-sec{background:rgba(18,18,31,.45);border:1px solid var(--line);border-radius:26px;padding:34px 30px;margin-top:36px}
+  .price-sec .ps-head{display:flex;align-items:center;gap:14px;margin-bottom:24px;flex-wrap:wrap}
+  .ps-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;
+           background:linear-gradient(135deg,rgba(139,92,246,.3),rgba(236,72,153,.25))}
+  .price-sec h3{font-size:clamp(20px,2.6vw,26px);font-weight:800;flex:1}
+  .price-sec h3 small{display:block;font-size:13.5px;color:var(--mut);font-weight:400;margin-top:2px}
+  .price-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .tier{position:relative;border-radius:18px;padding:24px 22px;text-align:center;opacity:0;transform:translateY(24px);
+        background:linear-gradient(165deg,var(--card2),var(--card));border:1.5px solid rgba(139,92,246,.3);transition:.35s}
+  .tier.in{opacity:1;transform:none;transition:.7s ease}
+  .tier:hover{transform:translateY(-6px);border-color:var(--cyan);box-shadow:0 18px 44px rgba(34,211,238,.12)}
+  .tier.hot{border-color:rgba(236,72,153,.6);box-shadow:0 0 0 1px rgba(236,72,153,.35)}
+  .tier .tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:800;color:#0a0a14;
+             padding:4px 16px;border-radius:999px;white-space:nowrap;background:linear-gradient(90deg,#22d3ee,#8b5cf6)}
+  .tier.hot .tag{background:linear-gradient(90deg,#f472b6,#ec4899)}
+  .tier .tname{font-size:16.5px;font-weight:700;margin-bottom:10px}
+  .tier .nums{font-size:38px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums;
+              background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .tier .nums small{font-size:14px;color:var(--mut);-webkit-text-fill-color:var(--mut);font-weight:400}
+  .tier .tdesc{font-size:12.5px;color:var(--mut);border-top:1px dashed rgba(139,92,246,.3);margin-top:13px;padding-top:11px;line-height:1.65}
+  .deal{margin-top:18px;text-align:center;border:1.5px dashed rgba(236,72,153,.5);border-radius:16px;padding:16px 18px;
+        background:rgba(236,72,153,.05);opacity:0;transform:translateY(16px)}
+  .deal.in{opacity:1;transform:none;transition:.7s ease}
+  .deal b{color:#f9a8d4}
+  .deal .dt{color:var(--mut);font-size:13px;margin-top:4px}
+
+  /* 合作说明 */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
+  .panel{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:28px;opacity:0;transform:translateY(26px)}
+  .panel.in{opacity:1;transform:none;transition:.7s ease}
+  .panel h3{font-size:18.5px;margin-bottom:16px}
+  .panel h3 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .chk{display:flex;gap:12px;align-items:flex-start;padding:7px 0}
+  .chk .tick{flex-shrink:0;width:20px;height:20px;border-radius:6px;margin-top:3px;display:flex;align-items:center;justify-content:center;
+             font-size:12px;color:#0a0a14;background:linear-gradient(135deg,var(--purple),var(--cyan));box-shadow:0 0 9px rgba(139,92,246,.4)}
+  .chk p{font-size:14.5px;color:#cfcfe0}
+  .chk p b{color:#fff}
+
+  /* 流程双模式 */
+  .flow-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px}
+  .flow{border:1px solid var(--line);border-radius:20px;padding:28px;background:rgba(18,18,31,.5);opacity:0;transform:translateY(26px)}
+  .flow.in{opacity:1;transform:none;transition:.7s ease}
+  .flow h4{font-size:18px;margin-bottom:4px}
+  .flow .ft{font-size:13px;color:var(--cyan);margin-bottom:18px;letter-spacing:1px}
+  .fstep{display:flex;gap:14px;align-items:flex-start;padding:9px 0}
+  .fnum{flex-shrink:0;width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;
+        background:linear-gradient(135deg,var(--purple),var(--pink));color:#0a0a14}
+  .fstep p{font-size:14.5px;color:#d5d5e4;padding-top:3px}
+  .fstep p b{color:#fff}
+
+  /* 联系 */
+  #contact{text-align:center;padding-top:56px}
+  .contact-card{max-width:680px;margin:34px auto 0;border-radius:26px;padding:44px 40px;opacity:0;transform:scale(.96);
+                background:linear-gradient(165deg,rgba(139,92,246,.14),rgba(18,18,31,.92));border:1.5px solid var(--line)}
+  .contact-card.in{opacity:1;transform:none;transition:.7s ease}
+  .contact-card .big{font-size:22px;font-weight:800;margin-bottom:6px}
+  .contact-card .sub{color:var(--mut);font-size:14px;margin-bottom:26px}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .c-item{background:rgba(10,10,20,.55);border:1px solid var(--line);border-radius:14px;padding:17px 14px;transition:.3s}
+  .c-item:hover{border-color:rgba(34,211,238,.5);transform:translateY(-3px)}
+  .c-item .clabel{font-size:12px;color:var(--mut);letter-spacing:2px;margin-bottom:5px}
+  .c-item .cval{font-size:18.5px;font-weight:800;color:#fff;display:flex;align-items:center;justify-content:center;gap:8px}
+  .c-item .cval a{color:var(--cyan);text-decoration:none}
+  .c-item.full{grid-column:1/-1}
+  .copy-btn{background:rgba(34,211,238,.12);border:1px solid rgba(34,211,238,.5);color:#7ee8f5;font-size:12px;font-weight:700;
+            padding:4px 14px;border-radius:999px;cursor:pointer;transition:.25s}
+  .copy-btn:hover{background:rgba(34,211,238,.28)}
+  .copy-btn.done{background:rgba(52,211,153,.2);border-color:rgba(52,211,153,.6);color:#6ee7b7}
+  footer{padding:32px 5vw;text-align:center;color:#6a6a80;font-size:13px;border-top:1px solid var(--line);position:relative;z-index:1}
+  #toast{position:fixed;left:50%;bottom:44px;transform:translateX(-50%) translateY(20px);z-index:300;opacity:0;pointer-events:none;
+         background:rgba(20,20,36,.95);border:1px solid rgba(34,211,238,.5);color:#7ee8f5;font-size:14px;font-weight:700;
+         padding:12px 28px;border-radius:999px;box-shadow:0 12px 40px rgba(0,0,0,.5);transition:.35s;backdrop-filter:blur(8px)}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @media(max-width:960px){
+    .srv-grid,.two-col,.flow-grid{grid-template-columns:1fr}
+    .stats{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:600px){
+    .nav-links{display:none;position:absolute;top:62px;left:0;right:0;flex-direction:column;background:rgba(10,10,20,.97);
+               padding:18px 5vw;border-bottom:1px solid var(--line);gap:15px}
+    .nav-links.open{display:flex}
+    .hamb{display:block}
+    .btn-mini{display:none}
+    .contact-grid{grid-template-columns:1fr}
+    section{padding:62px 5vw}
+  }
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div class="bgfx"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
+<div class="gridbg"></div>
+<div class="stars" id="stars"></div>
+
+<nav>
+  <div class="logo"><span class="mark">T</span>TikTok<span>代拍代剪</span></div>
+  <div class="nav-right">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">服务</a></li>
+      <li><a href="#pricing">报价</a></li>
+      <li><a href="#flow">流程</a></li>
+      <li><a href="#notes">说明</a></li>
+      <li><a href="#contact">联系</a></li>
+    </ul>
+    <a class="btn-mini" href="#contact">微信咨询 💬</a>
+    <button class="hamb" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-badge"><span class="pulse-dot"></span>专注 TikTok 带货短视频 · 个人团队直营，无中间商</div>
+    <h1>TikTok 短视频 <span class="g">一站式代做</span></h1>
+    <p class="hero-sub"><b>厨房百货实拍+口播</b> 与 <b>AI+剪辑</b> 双业务线，脚本 / 拍摄 / 剪辑 / 配音字幕全流程包办，成片对标机构水准。</p>
+    <div class="hero-pills">
+      <div class="pill" style="animation-delay:.2s">📹 实拍 + 🎙 真人口播 · 起步 <em>¥60</em>/条</div>
+      <div class="pill" style="animation-delay:.35s">🤖 AI 画面 + ✂️ 人工精剪 · <em>¥80-120</em>/条</div>
+      <div class="pill" style="animation-delay:.5s">🌍 中英字幕 · 适配美区/东南亚</div>
+      <div class="pill" style="animation-delay:.65s">🔄 每支 1 次免费修改</div>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#pricing">查看报价</a>
+      <a class="btn btn-ghost" href="#contact">咨询合作 →</a>
+    </div>
+    <div class="stats" id="statsBox">
+      <div class="stat"><b>¥60 起</b><small>实拍口播单条价</small></div>
+      <div class="stat"><b>¥80-120</b><small>AI+剪辑单条价</small></div>
+      <div class="stat"><b>500+</b><small>条/月 产能</small></div>
+      <div class="stat"><b>1 次</b><small>免费修改机会</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- 服务 -->
+<section id="services">
+  <div class="wrap">
+    <span class="sec-tag">Services</span>
+    <h2>两大业务 · <em>按需选择</em></h2>
+    <p class="lead">要真实产品演示选实拍，要快速量产选 AI，都能一站式交付。</p>
+    <div class="srv-grid">
+      <div class="srv hide">
+        <div class="ic">📹</div>
+        <h3>厨房百货 · 实拍 + 口播</h3>
+        <div class="tagline">全实拍 · 真人口播 · 真实场景演示</div>
+        <ul>
+          <li>切配 / 烹饪 / 收纳等真实使用场景</li>
+          <li>专业口播文案 + 现场录制，转化导向</li>
+          <li>剪辑包装：卡点 · 字幕 · 音效 · BGM</li>
+          <li>15-30 秒 / 30-60 秒双档可选</li>
+        </ul>
+        <a class="more" href="#pricing">查看实拍报价 →</a>
+      </div>
+      <div class="srv pink hide">
+        <div class="ic">🤖</div>
+        <h3>AI + 剪辑 · 短视频产出</h3>
+        <div class="tagline">AI 画面生成 · 人工精剪包装</div>
+        <ul>
+          <li>文生图 / 图生视频，画面版权干净</li>
+          <li>节奏卡点 · 花字动效 · 音效 BGM</li>
+          <li>中英字幕，适配 TikTok 美区/东南亚</li>
+          <li>无需寄样，脚本确认即开工，量产快</li>
+        </ul>
+        <a class="more" href="#pricing-ai">查看 AI 报价 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 报价 -->
+<section id="pricing" style="padding-top:40px">
+  <div class="wrap">
+    <span class="sec-tag">Pricing</span>
+    <h2>实拍口播 · <em>厨房百货专价</em></h2>
+    <div class="price-sec">
+      <div class="ps-head">
+        <div class="ps-icon">🍳</div>
+        <h3>全实拍 + 口播<small>样品到达起算交付 · 含脚本 · 剪辑包装一条龙</small></h3>
+      </div>
+      <div class="price-row">
+        <div class="tier">
+          <span class="tag">⭐ 初始价</span>
+          <div class="tname">15-30 秒成片</div>
+          <div class="nums"><span class="n1">0</span>-<span class="n2">0</span><small> RMB/条</small></div>
+          <div class="tdesc">全实拍+口播<br>快速种草 · 引流起步</div>
+        </div>
+        <div class="tier hot">
+          <span class="tag">🔥 主流爆量</span>
+          <div class="tname">30-60 秒成片</div>
+          <div class="nums"><span class="n3">0</span>-<span class="n4">0</span><small> RMB/条</small></div>
+          <div class="tdesc">全实拍+口播<br>场景化演示 · 完整种草链路</div>
+        </div>
+      </div>
+      <div class="deal">
+        <div>📦 <b>量大优惠：价格可商谈</b></div>
+        <div class="dt">批量下单 / 月度合作，量大从优 · 长期合作优先排期</div>
+      </div>
+    </div>
+
+    <div class="price-sec" id="pricing-ai" style="margin-top:26px">
+      <div class="ps-head">
+        <div class="ps-icon">🤖</div>
+        <h3>AI 画面 + 人工精剪<small>无需寄样 · 脚本确认即开工 · 适合快速量产与测品</small></h3>
+      </div>
+      <div class="price-row">
+        <div class="tier">
+          <span class="tag">⭐ 标准档</span>
+          <div class="tname">单条 AI+剪辑</div>
+          <div class="nums"><span class="n5">0</span>-<span class="n6">0</span><small> RMB/条</small></div>
+          <div class="tdesc">脚本 → AI 生成画面 → 精剪 → 配音字幕<br>15-60 秒</div>
+        </div>
+        <div class="tier hot">
+          <span class="tag">🔥 爆量最惠</span>
+          <div class="tname">月度套餐</div>
+          <div class="nums"><span class="n7">0</span><small> RMB/月</small></div>
+          <div class="tdesc">30 条 / 月起 · 爆量档 100 条 ¥8000/月<br>锁定档期 · 稳定供应</div>
+        </div>
+        <div class="tier">
+          <div class="tname">定制 / 长期</div>
+          <div class="nums" style="font-size:28px;padding-top:4px">面议</div>
+          <div class="tdesc">品牌定制 · 季度 / 半年签约<br>价格另议</div>
+        </div>
+      </div>
+      <div class="deal">
+        <div>📦 <b>量大优惠：价格可商谈</b></div>
+        <div class="dt">批量下单 / 月度合作，量大从优</div>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:16px;font-size:13.5px">※ 最终报价以实际需求清单与片型难度为准，量大从优。</p>
+  </div>
+</section>
+
+<!-- 流程 -->
+<section id="flow" style="padding-top:40px">
+  <div class="wrap">
+    <span class="sec-tag">Process</span>
+    <h2>两种模式 · <em>流程同样省心</em></h2>
+    <div class="flow-grid">
+      <div class="flow hide">
+        <h4>📹 实拍口播模式</h4>
+        <div class="ft">需要真实产品演示 · 样品寄拍</div>
+        <div class="fstep"><div class="fnum">1</div><p><b>需求沟通</b> — 确认产品、时长档位、参考风格</p></div>
+        <div class="fstep"><div class="fnum">2</div><p><b>方案报价</b> — 输出拍摄方案与报价，双方确认</p></div>
+        <div class="fstep"><div class="fnum">3</div><p><b>寄样起算</b> — 样品到达即开始计算交付日期</p></div>
+        <div class="fstep"><div class="fnum">4</div><p><b>拍摄交付</b> — 实拍+口播录制 → 精剪 → 交片修改</p></div>
+      </div>
+      <div class="flow hide">
+        <h4>🤖 AI+剪辑模式</h4>
+        <div class="ft">快速量产 · 无需寄样</div>
+        <div class="fstep"><div class="fnum">1</div><p><b>脚本确认</b> — 产品资料 + 卖点 + 风格，出脚本</p></div>
+        <div class="fstep"><div class="fnum">2</div><p><b>AI 生成</b> — 文生图/图生视频产出画面素材</p></div>
+        <div class="fstep"><div class="fnum">3</div><p><b>人工精剪</b> — 卡点/字幕/音效/BGM 包装成片</p></div>
+        <div class="fstep"><div class="fnum">4</div><p><b>交付修改</b> — 按批交付 · 每支 1 次免费修改</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 合作说明 -->
+<section id="notes" style="padding-top:40px">
+  <div class="wrap">
+    <span class="sec-tag">Notes</span>
+    <h2>合作说明 · <em>规则透明</em></h2>
+    <div class="two-col">
+      <div class="panel hide">
+        <h3><span>📦 交付标准</span></h3>
+        <div class="chk"><span class="tick">✓</span><p><b>规格：</b>竖屏 1080×1920 · 60fps · MP4</p></div>
+        <div class="chk"><span class="tick">✓</span><p><b>时长：</b>15 秒 / 30 秒 / 60 秒按需定制</p></div>
+        <div class="chk"><span class="tick">✓</span><p><b>修改：</b>每支片子含 <b>1 次免费修改</b>，超出协商计费</p></div>
+        <div class="chk"><span class="tick">✓</span><p><b>版权：</b>成片使用权归甲方；保密需求可书面约定</p></div>
+      </div>
+      <div class="panel hide">
+        <h3><span>💰 费用与付款</span></h3>
+        <div class="chk"><span class="tick">✓</span><p>实拍线：<b>样品到达起算</b>交付日期</p></div>
+        <div class="chk"><span class="tick">✓</span><p>如需外拍场景：<b>来回路费 + 场景费用由甲方另行承担</b></p></div>
+        <div class="chk"><span class="tick">✓</span><p>单次预付 50% · 月度预付 30%，交付后结清</p></div>
+        <div class="chk"><span class="tick">✓</span><p>个人团队直营，无门店成本，价格让利给客户</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 联系 -->
+<section id="contact">
+  <div class="wrap">
+    <span class="sec-tag">Contact</span>
+    <h2 style="justify-content:center">开始合作 · <em>随时沟通</em></h2>
+    <p class="lead" style="margin:0 auto;text-align:center">把产品交给我们，把爆款交给 TikTok。</p>
+    <div class="contact-card">
+      <div class="big">TikTok 短视频一站式代做</div>
+      <div class="sub">实拍口播 / AI+剪辑 · 龚先生</div>
+      <div class="contact-grid">
+        <div class="c-item">
+          <div class="clabel">对接人</div>
+          <div class="cval">👨‍💼 龚先生</div>
+        </div>
+        <div class="c-item">
+          <div class="clabel">联系电话</div>
+          <div class="cval"><a href="tel:13318499088">133 1849 9088</a></div>
+        </div>
+        <div class="c-item full">
+          <div class="clabel">微信号</div>
+          <div class="cval">1905396071 <button class="copy-btn" onclick="copyWx(this)">复制微信号</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 TikTok 短视频一站式代做 · 龚先生 13318499088 · 微信 1905396071<br>
+独立内容制作团队 · 个人接单 · 合作合法有效</footer>
+
+<div id="toast"></div>
+
+<script>
+  // 进度条
+  const prog = document.getElementById('prog');
+  addEventListener('scroll', () => {
+    const h = document.documentElement;
+    prog.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  }, { passive: true });
+
+  // 星光
+  const stars = document.getElementById('stars');
+  for (let i = 0; i < 60; i++) {
+    const d = document.createElement('div');
+    d.className = 'star';
+    d.style.left = Math.random() * 100 + '%';
+    d.style.top = Math.random() * 100 + '%';
+    d.style.animationDuration = (2 + Math.random() * 4) + 's';
+    d.style.animationDelay = (Math.random() * 5) + 's';
+    d.style.width = d.style.height = (1 + Math.random() * 2.5) + 'px';
+    stars.appendChild(d);
+  }
+
+  // 数字滚动
+  function roll(el, target) {
+    const t0 = performance.now(), dur = 1300;
+    function step(t) {
+      const k = Math.min((t - t0) / dur, 1);
+      const e = 1 - Math.pow(1 - k, 3);
+      el.textContent = Math.round(target * e);
+      if (k < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // 滚动入场
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .12 });
+  document.querySelectorAll('.hide, .stat').forEach(el => io.observe(el));
+  // 报价卡片与数字：进入视口才滚动
+  const io2 = new IntersectionObserver(es => {
+    es.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io2.unobserve(e.target);
+      }
+    });
+  }, { threshold: .25 });
+  document.querySelectorAll('.tier, .deal').forEach(el => io2.observe(el));
+  const priceEls = { '.n1': 60, '.n2': 80, '.n3': 100, '.n4': 120, '.n5': 80, '.n6': 120, '.n7': 2400 };
+  const io3 = new IntersectionObserver(es => {
+    es.forEach(e => {
+      if (e.isIntersecting) {
+        const sel = '.' + e.target.className.split(' ')[0];
+        // 找到所属卡片容器内的所有数字，统一滚动
+        const host = e.target.closest('.price-sec');
+        if (host) {
+          host.querySelectorAll('[class^="n"]').forEach(el => { const t = priceEls['.' + el.className]; if (t) roll(el, t); });
+        }
+        io3.unobserve(e.target);
+      }
+    });
+  }, { threshold: .2 });
+  document.querySelectorAll('.price-sec').forEach(el => io3.observe(el));
+
+  // 复制微信号
+  function copyWx(btn) {
+    const wx = '1905396071';
+    const done = () => {
+      btn.textContent = '✓ 已复制';
+      btn.classList.add('done');
+      toast('微信号已复制：' + wx);
+      setTimeout(() => { btn.textContent = '复制微信号'; btn.classList.remove('done'); }, 2000);
+    };
+    if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(wx).then(done, () => fallback(wx, done)); }
+    else { fallback(wx, done); }
+  }
+  function fallback(txt, done) {
+    const ta = document.createElement('textarea');
+    ta.value = txt; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); done(); } catch (e) { toast('复制失败，请手动复制'); }
+    document.body.removeChild(ta);
+  }
+  let toastTimer;
+  function toast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg; t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+  }
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('open');
+  }));
+</script>
+<script>
+  // 安全兜底：任何异常 3.5 秒后强制显示全部 + 数字写目标值，绝不黑屏
+  setTimeout(function () {
+    try {
+      document.querySelectorAll('.hide,.stat,.tier,.deal,.panel,.flow,.srv,.contact-card').forEach(function (el) { el.classList.add('in'); });
+      var map = { '.n1': 60, '.n2': 80, '.n3': 100, '.n4': 120, '.n5': 80, '.n6': 120, '.n7': 2400 };
+      for (var k in map) { var el = document.querySelector(k); if (el) el.textContent = map[k]; }
+    } catch (e) {}
+  }, 3500);
+</script>
+</body>
+</html>

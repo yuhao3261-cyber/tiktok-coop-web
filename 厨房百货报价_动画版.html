@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TikTok 厨房百货 实拍+口播 报价</title>
+<style>
+  :root{
+    --purple:#8b5cf6; --pink:#ec4899; --cyan:#22d3ee;
+    --bg:#0a0a14; --card:#12121f; --card2:#171728;
+    --txt:#e8e8f0; --mut:#9a9ab0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{min-height:100vh;background:var(--bg);color:var(--txt);font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+       overflow-x:hidden;display:flex;flex-direction:column;align-items:center;padding:40px 16px 60px}
+  /* 流动光晕背景 */
+  .bg{position:fixed;inset:0;z-index:-1;overflow:hidden}
+  .orb{position:absolute;border-radius:50%;filter:blur(110px);opacity:.22;animation:drift 14s ease-in-out infinite alternate}
+  .orb1{width:55vw;height:55vw;background:#8b5cf6;top:-18vw;left:-14vw}
+  .orb2{width:50vw;height:50vw;background:#ec4899;bottom:-20vw;right:-12vw;animation-delay:-5s}
+  .orb3{width:35vw;height:35vw;background:#22d3ee;top:45%;left:-18vw;opacity:.12;animation-delay:-9s}
+  @keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(6vw,4vh) scale(1.15)}}
+  /* 光点粒子 */
+  .stars{position:fixed;inset:0;z-index:-1;pointer-events:none}
+  .star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;opacity:0;animation:twinkle linear infinite}
+  @keyframes twinkle{0%,100%{opacity:0}50%{opacity:.8}}
+
+  .wrap{width:100%;max-width:560px;position:relative}
+  /* 顶部徽章 + 标题 */
+  .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(34,211,238,.45);color:#7ee8f5;
+         font-size:13px;letter-spacing:3px;padding:7px 20px;border-radius:999px;background:rgba(34,211,238,.06);
+         animation:fadeDown .8s ease both;margin-bottom:22px}
+  .badge .pulse{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);animation:pulse 1.6s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  @keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:none}}
+  h1{font-size:clamp(34px,7vw,46px);font-weight:900;line-height:1.2;margin-bottom:10px;animation:fadeDown .8s .08s ease both}
+  h1 .grad{background:linear-gradient(90deg,#22d3ee,#8b5cf6,#ec4899,#8b5cf6,#22d3ee);background-size:300% 100%;
+           -webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 5s linear infinite}
+  @keyframes flow{to{background-position:300% 0}}
+  .sub{color:var(--mut);font-size:15px;margin-bottom:8px;animation:fadeDown .8s .16s ease both}
+  .sub b{color:#dfdff0}
+
+  /* 卡片 */
+  .tier{position:relative;margin-top:22px;border-radius:22px;padding:24px 26px;overflow:hidden;opacity:0;
+        transform:translateY(40px);transition:opacity .7s ease,transform .7s ease;
+        background:linear-gradient(160deg,var(--card2),var(--card));border:1.5px solid rgba(139,92,246,.3)}
+  .tier.in{opacity:1;transform:none}
+  /* 流光描边 */
+  .tier::before{content:"";position:absolute;inset:0;border-radius:22px;padding:1.5px;
+                background:conic-gradient(from var(--ang,0deg),transparent 0 60%,var(--cyan) 78%,var(--purple) 90%,transparent 100%);
+                -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+                opacity:.75;animation:spin 5s linear infinite;pointer-events:none}
+  .tier.hot::before{animation-duration:3.2s}
+  @property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+  @keyframes spin{to{--ang:360deg}}
+  .tier .tag{position:absolute;top:14px;right:-2px;font-size:12.5px;font-weight:800;color:#0a0a14;padding:5px 16px 5px 18px;
+             border-radius:999px 0 0 999px;background:linear-gradient(90deg,var(--cyan),var(--purple));letter-spacing:1px}
+  .tier.hot .tag{background:linear-gradient(90deg,#f472b6,#ec4899)}
+  .tier .head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .tier h2{font-size:22px;font-weight:800}
+  .tier .len{color:var(--mut);font-size:14.5px;margin-top:4px}
+  .tier .len b{color:var(--cyan)}
+  .price-line{display:flex;align-items:baseline;justify-content:space-between;margin-top:16px;padding-top:14px;
+              border-top:1px dashed rgba(139,92,246,.3)}
+  .nums{font-size:52px;font-weight:900;line-height:1;letter-spacing:1px;
+        background:linear-gradient(90deg,#22d3ee,#8b5cf6,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent;
+        font-variant-numeric:tabular-nums}
+  .nums small{font-size:17px;color:var(--mut);-webkit-text-fill-color:var(--mut);margin-left:6px}
+  .price-note{color:var(--mut);font-size:13px}
+  .tier .desc{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .tier .desc span{font-size:12.5px;color:#c9c9dd;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.25);
+                   padding:5px 12px;border-radius:999px}
+
+  /* 量大可商谈 */
+  .bulk{margin-top:22px;text-align:center;padding:18px 20px;border:1.5px dashed rgba(236,72,153,.5);border-radius:18px;
+        background:rgba(236,72,153,.05);opacity:0;transform:translateY(30px);transition:.7s ease}
+  .bulk.in{opacity:1;transform:none}
+  .bulk b{color:#f9a8d4;font-size:16px}
+  .bulk .detail{color:var(--mut);font-size:13px;margin-top:6px}
+
+  /* 说明清单 */
+  .notes{margin-top:22px;background:rgba(18,18,31,.7);border:1px solid rgba(139,92,246,.25);border-radius:18px;
+         padding:22px 24px;opacity:0;transform:translateY(30px);transition:.7s ease}
+  .notes.in{opacity:1;transform:none}
+  .notes h3{font-size:16.5px;margin-bottom:14px}
+  .notes h3 .g2{background:linear-gradient(90deg,#22d3ee,#8b5cf6);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .chk{display:flex;gap:10px;align-items:flex-start;padding:7px 0;opacity:0;transform:translateX(-14px);transition:.5s ease}
+  .chk.in{opacity:1;transform:none}
+  .chk .tick{flex-shrink:0;width:19px;height:19px;border-radius:6px;margin-top:3px;display:flex;align-items:center;justify-content:center;
+             font-size:11px;color:#0a0a14;background:linear-gradient(135deg,var(--purple),var(--cyan));
+             box-shadow:0 0 10px rgba(139,92,246,.5)}
+  .chk p{font-size:14px;color:#cfcfe0}
+
+  /* 联系 */
+  .contact{margin-top:26px;text-align:center;padding:24px;border-radius:20px;opacity:0;transform:scale(.95);transition:.7s ease;
+           background:linear-gradient(160deg,rgba(139,92,246,.16),rgba(18,18,31,.9));border:1.5px solid rgba(139,92,246,.45)}
+  .contact.in{opacity:1;transform:none}
+  .contact .who{font-size:20px;font-weight:800;margin-bottom:6px}
+  .contact .c2{font-size:16.5px;color:#7ee8f5;letter-spacing:1px;margin-bottom:14px}
+  .btn{display:inline-block;text-decoration:none;font-weight:800;font-size:15px;color:#0a0a14;padding:13px 42px;border-radius:999px;
+       background:linear-gradient(90deg,#22d3ee,#8b5cf6,#ec4899);background-size:200% 100%;
+       animation:btnFlow 4s linear infinite;box-shadow:0 8px 30px rgba(139,92,246,.45);transition:.3s}
+  @keyframes btnFlow{to{background-position:200% 0}}
+  .btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(236,72,153,.5)}
+  .foot{margin-top:18px;text-align:center;color:#6a6a80;font-size:12px}
+</style>
+</head>
+<body>
+<div class="bg"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
+<div class="stars" id="stars"></div>
+
+<div class="wrap">
+  <div style="text-align:center">
+    <div class="badge"><span class="pulse"></span>TIKTOK · 厨房百货</div>
+    <h1>实拍 + 口播 <span class="grad">报价表</span></h1>
+    <div class="sub">全实拍 · 真人口播 · 产品演示带货 &nbsp;|&nbsp; 联系 <b>龚先生</b></div>
+  </div>
+
+  <!-- 15-30秒 -->
+  <div class="tier" id="t1">
+    <span class="tag">⭐ 基础档</span>
+    <h2>15-30 秒成片</h2>
+    <div class="len">全实拍 + 口播 · 快速种草</div>
+    <div class="price-line">
+      <div><div class="nums"><span class="n1">0</span>-<span class="n2">0</span><small>RMB/条</small></div></div>
+      <div class="price-note">竖屏 1080×1920<br>MP4 交付</div>
+    </div>
+    <div class="desc"><span>📹 全实拍演示</span><span>🎙 真人口播</span><span>✂️ 剪辑一条龙</span></div>
+  </div>
+
+  <!-- 30-60秒 -->
+  <div class="tier hot" id="t2">
+    <span class="tag">🔥 主流爆量</span>
+    <h2>30-60 秒成片</h2>
+    <div class="len">全实拍 + 口播 · 完整种草链路</div>
+    <div class="price-line">
+      <div><div class="nums"><span class="n3">0</span>-<span class="n4">0</span><small>RMB/条</small></div></div>
+      <div class="price-note">场景化演示<br>转化导向文案</div>
+    </div>
+    <div class="desc"><span>📹 多场景实拍</span><span>🎙 专业口播</span><span>🎵 音效BGM</span><span>💬 字幕</span></div>
+  </div>
+
+  <!-- 量大 -->
+  <div class="bulk" id="bk">
+    <div>📦 <b>量大优惠：价格可商谈</b></div>
+    <div class="detail">批量下单 / 月度合作，量大从优 · 长期合作优先排期</div>
+  </div>
+
+  <!-- 说明 -->
+  <div class="notes" id="nt">
+    <h3><span class="g2">合作说明</span></h3>
+    <div class="chk"><span class="tick">✓</span><p>每支片子含 <b>1 次免费修改</b>，超出协商计费</p></div>
+    <div class="chk"><span class="tick">✓</span><p>如需外拍场景：<b>来回路费 + 场景费用由甲方另行承担</b></p></div>
+    <div class="chk"><span class="tick">✓</span><p>样品到达起算交付日期 · 单次预付 50% / 月度预付 30%</p></div>
+  </div>
+
+  <!-- 联系 -->
+  <div class="contact" id="ct">
+    <div class="who">龚先生 · 对接合作</div>
+    <div class="c2">📞 13318499088 &nbsp;|&nbsp; 💬 微信 1905396071</div>
+    <a class="btn" href="tel:13318499088">立即咨询合作</a>
+  </div>
+  <div class="foot">个人团队直营 · 实拍质量对标机构 · 合作合法有效</div>
+</div>
+
+<script>
+  // 生成光点
+  const s = document.getElementById('stars');
+  for (let i = 0; i < 46; i++) {
+    const d = document.createElement('div');
+    d.className = 'star';
+    d.style.left = Math.random()*100 + '%';
+    d.style.top = Math.random()*100 + '%';
+    d.style.animationDuration = (2 + Math.random()*4) + 's';
+    d.style.animationDelay = (Math.random()*5) + 's';
+    d.style.width = d.style.height = (1 + Math.random()*2.5) + 'px';
+    s.appendChild(d);
+  }
+
+  // 数字滚动到目标
+  function roll(el, target) {
+    const t0 = performance.now(), dur = 1300;
+    function step(t) {
+      const k = Math.min((t - t0) / dur, 1);
+      const e = 1 - Math.pow(1 - k, 3); // easeOutCubic
+      el.textContent = Math.round(target * e);
+      if (k < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // 入场时间线
+  const t1 = document.getElementById('t1'), t2 = document.getElementById('t2');
+  const bk = document.getElementById('bk'), nt = document.getElementById('nt'), ct = document.getElementById('ct');
+  setTimeout(() => t1.classList.add('in'), 300);
+  setTimeout(() => { t2.classList.add('in'); roll(document.querySelector('.n1'), 60); roll(document.querySelector('.n2'), 80); }, 900);
+  setTimeout(() => { bk.classList.add('in'); roll(document.querySelector('.n3'), 100); roll(document.querySelector('.n4'), 120); }, 1500);
+  setTimeout(() => nt.classList.add('in'), 1900);
+  setTimeout(() => ct.classList.add('in'), 2100);
+
+  // 说明条目逐条入场
+  setTimeout(() => { document.querySelectorAll('.chk').forEach((c, i) => setTimeout(() => c.classList.add('in'), 2300 + i * 250)); }, 2300);
+</script>
+<script>
+  // 安全兜底：任何异常都强制显示全部内容 + 数字写目标值，绝不黑屏
+  setTimeout(function () {
+    try {
+      document.querySelectorAll('.tier,.bulk,.notes,.contact,.chk').forEach(function (el) { el.classList.add('in'); });
+      var map = { '.n1': 60, '.n2': 80, '.n3': 100, '.n4': 120 };
+      for (var k in map) { document.querySelector(k).textContent = map[k]; }
+    } catch (e) {}
+  }, 4000);
+</script>
+</body>
+</html>
