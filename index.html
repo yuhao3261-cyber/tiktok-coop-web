@@ -32,6 +32,17 @@
   nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
       padding:14px 5vw;background:rgba(10,10,20,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
   .logo{font-weight:800;font-size:18.5px;display:flex;align-items:center;gap:10px}
+  /* logo 白卡嵌入（原图白底，深色页面用白卡承接） */
+  .nav-logo{display:inline-flex;align-items:center;background:#fff;border-radius:10px;padding:5px 12px;
+            box-shadow:0 4px 16px rgba(0,0,0,.35)}
+  .nav-logo img{height:22px;width:auto;display:block}
+  .hero-logo-card{display:inline-flex;background:#fff;border-radius:24px;padding:16px 26px;margin-bottom:24px;
+                  box-shadow:0 12px 50px rgba(139,92,246,.4)}
+  .hero-logo-card img{height:118px;width:auto;display:block}
+  .foot-logo{display:inline-flex;background:#fff;border-radius:8px;padding:4px 10px;margin-bottom:10px}
+  .foot-logo img{height:20px;width:auto;display:block}
+  @media(max-width:600px){.hero-logo-card img{height:84px}}
+
   .logo .mark{width:30px;height:30px;border-radius:9px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:15px;color:#0a0a14;font-weight:900}
   .logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
   .nav-right{display:flex;align-items:center;gap:22px}
@@ -229,7 +240,7 @@
 <div class="stars" id="stars"></div>
 
 <nav>
-  <div class="logo"><span class="mark">T</span>TikTok<span>代拍代剪</span></div>
+  <a class="logo nav-logo" href="#hero" style="text-decoration:none;color:inherit"><img src="assets/logo_text.png" alt="DuoFrame"></a>
   <div class="nav-right">
     <ul class="nav-links" id="navLinks">
       <li><a href="#services">服务</a></li>
@@ -247,7 +258,8 @@
 <!-- HERO -->
 <section id="hero">
   <div class="wrap hero-inner">
-    <div class="hero-badge"><span class="pulse-dot"></span>专注 TikTok 带货短视频 · 个人团队直营，无中间商</div>
+    <div class="hero-logo-card"><img src="assets/logo_mark.png" alt="DuoFrame 团队标"></div>
+    <div class="hero-badge"><span class="pulse-dot"></span>专注 TikTok 带货短视频 · 双人团队直营，无中间商</div>
     <h1>TikTok 短视频 <span class="g">一站式代做</span></h1>
     <p class="hero-sub"><b>实拍代拍 · 实拍口播 · AI+剪辑</b> 三条业务线，脚本 / 拍摄 / 剪辑 / 配音字幕全流程包办，成片对标机构水准。</p>
     <div class="cta-row">
@@ -524,7 +536,8 @@
   </div>
 </section>
 
-<footer>© 2026 TikTok 短视频一站式代做 · 龚先生 13318499088 · 微信 1905396071<br>
+<footer><div class="foot-logo"><img src="assets/logo_text.png" alt="DuoFrame"></div>
+© 2026 DuoFrame · TikTok 短视频一站式代做 · 龚先生 13318499088 · 微信 1905396071<br>
 覆盖市场：🇺🇸 美区 · 🇯🇵 日区 · 🇸🇬🇲🇾🇵🇭🇹🇭 东南亚<br>
 独立内容制作团队 · 个人接单 · 合作合法有效</footer>
 
