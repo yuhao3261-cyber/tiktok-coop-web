@@ -187,6 +187,26 @@
          padding:12px 28px;border-radius:999px;box-shadow:0 12px 40px rgba(0,0,0,.5);transition:.35s;backdrop-filter:blur(8px)}
   #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
+  /* 覆盖市场 */
+  .region-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:4px 0 26px}
+  .region-label{font-size:13.5px;font-weight:800;color:#fff;background:linear-gradient(90deg,#8b5cf6,#ec4899);
+                padding:6px 16px;border-radius:999px;letter-spacing:1px}
+  .region-chip{font-size:13.5px;color:#d8d8e8;border:1px solid rgba(34,211,238,.4);background:rgba(34,211,238,.07);
+               padding:6px 16px;border-radius:999px;transition:.25s}
+  .region-chip:hover{border-color:var(--cyan);transform:translateY(-2px)}
+  /* 常见问题 */
+  .faq-list{max-width:860px;margin-top:34px}
+  .faq-item{border:1px solid var(--line);border-radius:16px;margin-bottom:12px;background:rgba(18,18,31,.6);overflow:hidden;transition:.3s}
+  .faq-item:hover{border-color:rgba(139,92,246,.5)}
+  .faq-item summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:12px;padding:17px 22px;
+                    font-size:16px;font-weight:700;color:#e8e8f0;transition:.25s;user-select:none}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::before{content:"+";flex-shrink:0;width:24px;height:24px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+                            font-size:16px;font-weight:900;color:#0a0a14;background:var(--grad);transition:.3s}
+  .faq-item[open] summary::before{content:"−"}
+  .faq-item[open] summary{color:#fff}
+  .faq-item p{padding:0 22px 18px 58px;color:#b9b9cc;font-size:14.5px;line-height:1.8}
+
   @media(max-width:960px){
     .two-col,.flow-grid{grid-template-columns:1fr}
     .stats{grid-template-columns:repeat(2,1fr)}
@@ -216,6 +236,7 @@
       <li><a href="#pricing">报价</a></li>
       <li><a href="#flow">流程</a></li>
       <li><a href="#notes">说明</a></li>
+      <li><a href="#faq">问答</a></li>
       <li><a href="#contact">联系</a></li>
     </ul>
     <a class="btn-mini" href="#contact">微信咨询 💬</a>
@@ -248,6 +269,13 @@
     <span class="sec-tag">Services</span>
     <h2>三条业务线 · <em>按需选择</em></h2>
     <p class="lead">多品类实拍、口播带货、AI 量产，都能一站式交付。</p>
+    <div class="region-bar hide">
+      <span class="region-label">🌐 覆盖市场</span>
+      <span class="region-chip">🇺🇸 美区</span>
+      <span class="region-chip">🇯🇵 日区</span>
+      <span class="region-chip">🇸🇬🇲🇾🇵🇭🇹🇭 东南亚</span>
+      <span class="region-chip">📈 TikTok 带货平台</span>
+    </div>
     <div class="srv-grid">
       <div class="srv hide">
         <div class="ic">🎬</div>
@@ -256,7 +284,7 @@
         <ul>
           <li>产品实拍、场景化演示、开箱测评</li>
           <li>节奏卡点、字幕、贴纸动效、音效 BGM</li>
-          <li>熟悉美区、东南亚平台调性，本土化适配</li>
+          <li>熟悉美区、日区、东南亚平台调性与节奏</li>
           <li>15-30 秒快速起量 · 单条 / 月度套餐可选</li>
         </ul>
         <a class="more" href="#p-g">查看报价 →</a>
@@ -279,7 +307,7 @@
         <div class="tagline">AI 画面生成 · 人工精剪包装</div>
         <ul>
           <li>文生图 / 图生视频，画面版权干净</li>
-          <li>中英字幕，适配 TikTok 美区/东南亚</li>
+          <li>中/英/日字幕，适配美区 / 日区 / 东南亚</li>
           <li>无需寄样，脚本确认即开工</li>
           <li>适合快速量产与测品</li>
         </ul>
@@ -439,6 +467,34 @@
       </div>
     </div>
   </div>
+<!-- 常见问题 -->
+<section id="faq" style="padding-top:40px">
+  <div class="wrap hide">
+    <span class="sec-tag">FAQ</span>
+    <h2>常见问题 · <em>一次说清</em></h2>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>你们是个人团队，靠谱吗？质量怎么保证？</summary>
+        <p>先试单后长期：可以先合作 1-2 条看质量，满意再谈批量。支持视频验真、提供往期作品案例参考；每支片子含 1 次免费修改，直到符合约定要求。</p>
+      </details>
+      <details class="faq-item">
+        <summary>能开发票吗？怎么走账？</summary>
+        <p>我方为个人团队接单，无法开具公司增值税发票。可提供收款收据、电子凭证，微信/支付宝转账记录亦可作为付款凭证；如贵司财务有要求，可协助对接代开发票渠道（相关税费双方协商）。</p>
+      </details>
+      <details class="faq-item">
+        <summary>实拍和 AI 业务怎么选？</summary>
+        <p>实拍：真实产品 + 真实场景，信任感强，适合精品与口播，需寄样拍摄；AI+剪辑：无需寄样、脚本确认即开工、量产快，适合测品与快速铺量，画面版权干净。</p>
+      </details>
+      <details class="faq-item">
+        <summary>每支能改几次？多久交付？</summary>
+        <p>每支片子含 1 次免费修改，超出部分协商计费。实拍线样品到达即开始计算交付日期；AI 线脚本确认后按批交付，周期双方约定。</p>
+      </details>
+      <details class="faq-item">
+        <summary>付款节点和量大优惠怎么算？</summary>
+        <p>单次合作预付 50%，交付成片确认后结清；月度合作预付 30%，按月结算。批量下单 / 月度合作价格可商谈，量大从优，长期合作优先排期。</p>
+      </details>
+    </div>
+  </div>
 </section>
 
 <!-- 联系 -->
@@ -469,6 +525,7 @@
 </section>
 
 <footer>© 2026 TikTok 短视频一站式代做 · 龚先生 13318499088 · 微信 1905396071<br>
+覆盖市场：🇺🇸 美区 · 🇯🇵 日区 · 🇸🇬🇲🇾🇵🇭🇹🇭 东南亚<br>
 独立内容制作团队 · 个人接单 · 合作合法有效</footer>
 
 <div id="toast"></div>
