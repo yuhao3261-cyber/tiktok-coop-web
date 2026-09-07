@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TikTok 短视频代做 · 实拍代拍 / 实拍口播 / AI+剪辑</title>
+<meta name="description" content="TikTok 短视频一站式代做：实拍代拍代剪 / 实拍口播 / AI+剪辑三条业务线，覆盖美区日区东南亚，脚本拍摄剪辑配音字幕全流程包办，¥60/条起。">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TikTok 短视频一站式代做 · DuoFrame">
+<meta property="og:description" content="实拍代拍 / 实拍口播 / AI+剪辑 · 脚本拍摄剪辑配音字幕全流程包办 · ¥60/条起">
+<meta property="og:image" content="https://yuhao3261-cyber.github.io/tiktok-coop-web/assets/og-cover.png">
 <style>
   :root{
     --purple:#8b5cf6; --pink:#ec4899; --cyan:#22d3ee;
@@ -32,16 +38,19 @@
   nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
       padding:14px 5vw;background:rgba(10,10,20,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
   .logo{font-weight:800;font-size:18.5px;display:flex;align-items:center;gap:10px}
-  /* logo 白卡嵌入（原图白底，深色页面用白卡承接） */
-  .nav-logo{display:inline-flex;align-items:center;background:#fff;border-radius:10px;padding:5px 12px;
-            box-shadow:0 4px 16px rgba(0,0,0,.35)}
-  .nav-logo img{height:22px;width:auto;display:block}
-  .hero-logo-card{display:inline-flex;background:#fff;border-radius:24px;padding:16px 26px;margin-bottom:24px;
-                  box-shadow:0 12px 50px rgba(139,92,246,.4)}
-  .hero-logo-card img{height:118px;width:auto;display:block}
-  .foot-logo{display:inline-flex;background:#fff;border-radius:8px;padding:4px 10px;margin-bottom:10px}
-  .foot-logo img{height:20px;width:auto;display:block}
-  @media(max-width:600px){.hero-logo-card img{height:84px}}
+  /* logo 已抠图透明化(白底版在 assets/logo_orig/, 反白版供深色背景) */
+  .nav-logo{display:inline-flex;align-items:center;transition:.3s}
+  .nav-logo:hover{opacity:.88}
+  .nav-logo img{height:27px;width:auto;display:block;filter:drop-shadow(0 0 12px rgba(139,92,246,.35))}
+  .hero-logo-card{display:inline-flex;margin-bottom:26px;border-radius:26px;
+                  background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.28);
+                  padding:14px 20px;backdrop-filter:blur(6px);
+                  box-shadow:0 0 60px rgba(236,72,153,.22),inset 0 0 30px rgba(34,211,238,.06)}
+  .hero-logo-card img{height:118px;width:auto;display:block;
+                      filter:drop-shadow(0 6px 24px rgba(236,72,153,.35))}
+  .foot-logo{display:inline-flex;margin-bottom:10px;opacity:.9}
+  .foot-logo img{height:22px;width:auto;display:block;filter:drop-shadow(0 0 10px rgba(139,92,246,.25))}
+  @media(max-width:600px){.hero-logo-card img{height:88px}}
 
   .logo .mark{width:30px;height:30px;border-radius:9px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:15px;color:#0a0a14;font-weight:900}
   .logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
