@@ -1,2 +1,13 @@
+# 图片默认忽略，assets 下的保留
 *.png
 !assets/*.png
+
+# 备份文件
+*_backup_*.html
+*.bak
+*~
+
+# 系统文件
+Thumbs.db
+Desktop.ini
+.DS_Store
