@@ -220,6 +220,32 @@
   .faq-item[open] summary{color:#fff}
   .faq-item p{padding:0 22px 18px 58px;color:#b9b9cc;font-size:14.5px;line-height:1.8}
 
+  /* ===== 作品展示 ===== */
+  .works-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:18px;margin-top:36px}
+  .work{position:relative;border-radius:18px;overflow:hidden;cursor:pointer;aspect-ratio:9/16;
+        border:1px solid var(--line);background:var(--card);opacity:0;transform:translateY(26px);transition:.35s}
+  .work.in{opacity:1;transform:none;transition:.7s ease}
+  .work:hover{border-color:var(--cyan);box-shadow:0 18px 44px rgba(34,211,238,.16);transform:translateY(-5px)}
+  .work img{width:100%;height:100%;object-fit:cover;display:block;transition:.45s}
+  .work:hover img{transform:scale(1.06)}
+  .work .wplay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(10,10,20,.18);transition:.3s}
+  .work:hover .wplay{background:rgba(10,10,20,.05)}
+  .work .wplay i{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+                 background:rgba(10,10,20,.62);border:1.5px solid rgba(255,255,255,.5);backdrop-filter:blur(4px);transition:.3s}
+  .work:hover .wplay i{background:var(--grad);border-color:transparent;transform:scale(1.1)}
+  .work .wplay svg{width:20px;height:20px;fill:#fff;margin-left:3px}
+  .work .wtitle{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;font-size:13.5px;font-weight:700;color:#fff;
+                background:linear-gradient(transparent,rgba(10,10,20,.92));text-align:left;line-height:1.4}
+  .work .wtitle small{display:block;font-size:11.5px;color:var(--cyan);font-weight:400;margin-top:2px}
+  #lb{position:fixed;inset:0;z-index:400;display:none;align-items:center;justify-content:center;background:rgba(5,5,12,.94);backdrop-filter:blur(8px)}
+  #lb.show{display:flex}
+  #lb video{max-width:88vw;max-height:86vh;border-radius:14px;border:1px solid var(--line);box-shadow:0 0 60px rgba(139,92,246,.35)}
+  #lb .lb-close{position:absolute;top:26px;right:34px;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:22px;
+                color:#fff;background:rgba(255,255,255,.1);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:.25s}
+  #lb .lb-close:hover{background:rgba(236,72,153,.5)}
+  #lb .lb-title{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:14px;font-weight:700;color:#fff;
+                background:rgba(20,20,36,.9);border:1px solid var(--line);padding:8px 22px;border-radius:999px}
+
   @media(max-width:960px){
     .two-col,.flow-grid{grid-template-columns:1fr}
     .stats{grid-template-columns:repeat(2,1fr)}
@@ -246,6 +272,7 @@
   <div class="nav-right">
     <ul class="nav-links" id="navLinks">
       <li><a href="#services">服务</a></li>
+      <li><a href="#cases">案例</a></li>
       <li><a href="#pricing">报价</a></li>
       <li><a href="#flow">流程</a></li>
       <li><a href="#notes">说明</a></li>
@@ -327,6 +354,88 @@
         <a class="more" href="#p-ai">查看报价 →</a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- 部分案例 -->
+<section id="cases" style="padding-top:40px">
+  <div class="wrap">
+    <span class="sec-tag">Cases</span>
+    <h2>部分案例 · <em>真实交付成片</em></h2>
+    <p class="lead">以下为部分合作案例（非全部合作记录），点击卡片可在线观看。样片均已加水印，<b>仅供参考</b>，请勿转载或商用。</p>
+    <div class="works-grid">
+      <div class="work" data-v="assets/videos/v01.mp4" data-t="移动电源 · 数码配件">
+        <img src="assets/covers/v01.jpg" alt="移动电源 带货短视频案例" loading="lazy" draggable="false">
+        <div class="wplay"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div>
+        <div class="wtitle">移动电源<small>数码配件</small></div>
+      </div>
+      <div class="work" data-v="assets/videos/v02.mp4" data-t="无线耳机 · 数码配件">
+        <img src="assets/covers/v02.jpg" alt="无线耳机 带货短视频案例" loading="lazy" draggable="false">
+        <div class="wplay"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div>
+        <div class="wtitle">无线耳机<small>数码配件</small></div>
+      </div>
+      <div class="work" data-v="assets/videos/v03.mp4" data-t="桌面清洁 · 家居日用">
+        <img src="assets/covers/v03.jpg" alt="桌面清洁 带货短视频案例" loading="lazy" draggable="false">
+        <div class="wplay"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div>
+        <div class="wtitle">桌面清洁<small>家居日用</small></div>
+      </div>
+      <div class="work" data-v="assets/videos/v04.mp4" data-t="行李箱绑带 · 出行装备">
+        <img src="assets/covers/v04.jpg" alt="行李箱绑带 带货短视频案例" loading="lazy" draggable="false">
+        <div class="wplay"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div>
+        <div class="wtitle">行李箱绑带<small>出行装备</small></div>
+      </div>
+      <div class="work" data-v="assets/videos/v05.mp4" data-t="行李箱 · 出行装备">
+        <img src="assets/covers/v05.jpg" alt="行李箱 带货短视频案例" loading="lazy" draggable="false">
+        <div class="wplay"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div>
+        <div class="wtitle">行李箱<small>出行装备</small></div>
+      </div>
+      <div class="work" data-v="assets/videos/v06.mp4" data-t="咖啡壶 · 小家电开箱">
+        <img src="assets/covers/v06.jpg" alt="咖啡壶 带货短视频案例" loading="lazy" draggable="false">
+        <div class="wplay"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div>
+        <div class="wtitle">咖啡壶<small>小家电开箱</small></div>
+      </div>
+      <div class="work" data-v="assets/videos/v07.mp4" data-t="字母项链 · 珠宝首饰">
+        <img src="assets/covers/v07.jpg" alt="字母项链 带货短视频案例" loading="lazy" draggable="false">
+        <div class="wplay"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div>
+        <div class="wtitle">字母项链<small>珠宝首饰</small></div>
+      </div>
+      <div class="work" data-v="assets/videos/v08.mp4" data-t="破壁机 · 小家电">
+        <img src="assets/covers/v08.jpg" alt="破壁机 带货短视频案例" loading="lazy" draggable="false">
+        <div class="wplay"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div>
+        <div class="wtitle">破壁机<small>小家电</small></div>
+      </div>
+      <div class="work" data-v="assets/videos/v09.mp4" data-t="玻璃养生壶 · 小家电">
+        <img src="assets/covers/v09.jpg" alt="玻璃养生壶 带货短视频案例" loading="lazy" draggable="false">
+        <div class="wplay"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div>
+        <div class="wtitle">玻璃养生壶<small>小家电</small></div>
+      </div>
+      <div class="work" data-v="assets/videos/v10.mp4" data-t="灶台清洁 · 家居日用">
+        <img src="assets/covers/v10.jpg" alt="灶台清洁 带货短视频案例" loading="lazy" draggable="false">
+        <div class="wplay"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div>
+        <div class="wtitle">灶台清洁<small>家居日用</small></div>
+      </div>
+      <div class="work" data-v="assets/videos/v11.mp4" data-t="宠物湿巾 · 宠物用品">
+        <img src="assets/covers/v11.jpg" alt="宠物湿巾 带货短视频案例" loading="lazy" draggable="false">
+        <div class="wplay"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div>
+        <div class="wtitle">宠物湿巾<small>宠物用品</small></div>
+      </div>
+      <div class="work" data-v="assets/videos/v12.mp4" data-t="解压玩具 · 生活好物">
+        <img src="assets/covers/v12.jpg" alt="解压玩具 带货短视频案例" loading="lazy" draggable="false">
+        <div class="wplay"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div>
+        <div class="wtitle">解压玩具<small>生活好物</small></div>
+      </div>
+      <div class="work" data-v="assets/videos/v13.mp4" data-t="家纺床品 · 家居">
+        <img src="assets/covers/v13.jpg" alt="家纺床品 带货短视频案例" loading="lazy" draggable="false">
+        <div class="wplay"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div>
+        <div class="wtitle">家纺床品<small>家居</small></div>
+      </div>
+      <div class="work" data-v="assets/videos/v14.mp4" data-t="宠物凉感垫 · 宠物用品">
+        <img src="assets/covers/v14.jpg" alt="宠物凉感垫 带货短视频案例" loading="lazy" draggable="false">
+        <div class="wplay"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div>
+        <div class="wtitle">宠物凉感垫<small>宠物用品</small></div>
+      </div>
+    </div>
+    <p class="footnote">* 案例持续更新中；如需查看与您品类更接近的样片，可联系索取。</p>
   </div>
 </section>
 
@@ -542,6 +651,12 @@
 覆盖市场：🇺🇸 美区 · 🇯🇵 日区 · 🇸🇬🇲🇾🇵🇭🇹🇭 东南亚<br>
 独立内容制作团队 · 个人接单 · 合作合法有效</footer>
 
+<div id="lb">
+  <video id="lbVideo" controls controlsList="nodownload noplaybackrate noremoteplayback"
+         disablePictureInPicture playsinline oncontextmenu="return false"></video>
+  <div class="lb-close" onclick="closeLb()">✕</div>
+  <div class="lb-title" id="lbTitle"></div>
+</div>
 <div id="toast"></div>
 
 <script>
@@ -581,7 +696,7 @@
   const io = new IntersectionObserver(es => {
     es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: .12 });
-  document.querySelectorAll('.hide, .stat, .panel, .flow, .srv, .contact-card').forEach(el => io.observe(el));
+  document.querySelectorAll('.hide, .stat, .panel, .flow, .srv, .contact-card, .work').forEach(el => io.observe(el));
 
   const io2 = new IntersectionObserver(es => {
     es.forEach(e => {
@@ -632,6 +747,43 @@
   document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
     document.getElementById('navLinks').classList.remove('open');
   }));
+  // ===== 部分案例：灯箱播放 =====
+  const lb = document.getElementById('lb');
+  const lbVideo = document.getElementById('lbVideo');
+  const lbTitle = document.getElementById('lbTitle');
+  function openLb(src, title) {
+    lbVideo.src = src;
+    lbTitle.textContent = title + ' · 仅供参考，请勿盗用';
+    lb.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    lbVideo.play().catch(function () {});
+  }
+  function closeLb() {
+    lbVideo.pause();
+    lbVideo.removeAttribute('src');
+    lbVideo.load();
+    lb.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.work').forEach(function (w) {
+    w.addEventListener('click', function () { openLb(w.dataset.v, w.dataset.t); });
+  });
+  lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && lb.classList.contains('show')) closeLb(); });
+
+  // ===== 防下载（尽力而为）=====
+  // 1) 禁用案例区域右键菜单
+  document.addEventListener('contextmenu', function (e) {
+    if (e.target.closest('.work') || e.target.closest('#lb')) e.preventDefault();
+  });
+  // 2) 禁用拖拽保存
+  document.addEventListener('dragstart', function (e) {
+    if (e.target.closest('.work') || e.target.closest('#lb')) e.preventDefault();
+  });
+  // 3) 禁用 Ctrl+S / Ctrl+U（仅站内）
+  document.addEventListener('keydown', function (e) {
+    if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'u')) e.preventDefault();
+  });
 </script>
 <script>
   // 安全兜底：任何异常 3.5 秒后强制显示全部 + 数字写目标值，绝不黑屏
