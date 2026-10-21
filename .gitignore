@@ -1,6 +1,7 @@
-# 图片默认忽略，assets 下的保留
+# 图片默认忽略，assets 下的保留（含子目录）
 *.png
 !assets/*.png
+!assets/**/*.png
 
 # 备份文件
 *_backup_*.html
