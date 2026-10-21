@@ -422,6 +422,19 @@ h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;c
 .cta-strip p{font-size:12.5px;color:#b0b0c6;line-height:1.7}
 .cta-strip .btn{flex-shrink:0}
 
+/* 加量阶梯 */
+.vol-band{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:16px;padding:16px 20px;
+  border:1px solid rgba(34,211,238,.25);border-radius:14px;
+  background:linear-gradient(100deg,rgba(34,211,238,.07),rgba(18,18,30,.62))}
+.vol-band .vb-label{flex-shrink:0;font-size:10.5px;font-weight:900;letter-spacing:1.2px;
+  color:#04222a;background:var(--cyan);padding:3px 9px;border-radius:6px}
+.vol-list{display:flex;gap:9px;flex-wrap:wrap;flex:1}
+.vol-item{border:1px solid var(--line2);border-radius:9px;padding:8px 13px;
+  background:rgba(255,255,255,.02);font-size:10.5px;color:#8f8fa8;line-height:1.45}
+.vol-item b{display:block;color:#e8e8f6;font-size:12.5px;font-weight:800;margin-bottom:1px}
+.vol-item .save{color:#4ade80;font-weight:800}
+.vol-item.pick{border-color:rgba(34,211,238,.45);background:rgba(34,211,238,.08)}
+
 /* ===== 托管代运营对比表 ===== */
 .op-wrap{margin-top:16px;border:1px solid var(--line);border-radius:20px;overflow:hidden;
   background:linear-gradient(170deg,rgba(22,22,36,.78),rgba(11,11,18,.9))}
@@ -542,6 +555,10 @@ footer .sep{opacity:.35;margin:0 8px}
   .cycle{grid-template-columns:1fr}
   .ret-grid{grid-template-columns:1fr}
   .tier-hint{grid-template-columns:1fr}
+  .vol-band{flex-direction:column;align-items:stretch;gap:10px;padding:14px 16px}
+  .vol-band .vb-label{align-self:flex-start}
+  .vol-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .vol-item{padding:8px 10px}
   .cta-strip{flex-direction:column;align-items:flex-start;gap:16px}
   .cta-strip .btn{width:100%;justify-content:center}
   /* 对比表手机端堆叠成卡片 */
@@ -936,7 +953,7 @@ footer .sep{opacity:.35;margin:0 8px}
         <h5>矩阵版<span class="new-tag" style="background:var(--cyan)">多号 + 外语</span></h5>
         <div class="fit">3 个号一起起 · 外语版本直接打美区/日区</div>
         <div class="price">¥7,600<small> 起/月</small></div>
-        <div class="was">100 条参考价 · 按条数阶梯可谈</div>
+        <div class="was">100 条起 · 加量有阶梯价（见下）</div>
         <div class="diff" style="color:#7ee8f5;background:rgba(34,211,238,.09);border-left-color:var(--cyan)">多号分发防判重 + 外语版本</div>
         <ul>
           <li>100 条以上，一次拍摄喂多个账号</li>
@@ -947,11 +964,20 @@ footer .sep{opacity:.35;margin:0 8px}
         <div class="hook">单号做到天花板很快，<b>多号 + 外语才是放量</b>——同一批内容多卖一个国家</div>
       </div>
     </div>
+    <div class="vol-band">
+      <span class="vb-label">矩阵版 · 加量阶梯</span>
+      <div class="vol-list">
+        <div class="vol-item"><b>100 条 · ¥7,600</b>基础档</div>
+        <div class="vol-item pick"><b>200 条 · ¥13,800</b><span class="save">比买两份省 ¥1,400</span></div>
+        <div class="vol-item"><b>300 条 · ¥19,500</b><span class="save">比买三份省 ¥3,300</span></div>
+        <div class="vol-item"><b>500 条 · ¥31,000</b><span class="save">比买五份省 ¥7,000</span></div>
+      </div>
+    </div>
     <p class="price-note">
       * 四档的本质差别：<b style="color:#d8d8e8">测品版不拍摄只剪辑</b>（验证方向）→ <b style="color:#d8d8e8">起量版室内单场景</b>（要产能）→ <b style="color:#d8d8e8">放量版切版 + 选题库 + 复盘</b>（要测试迭代）→ <b style="color:#d8d8e8">矩阵版多号 + 外语 + 专属服务</b>（要铺量出海）。
       <br>* 新客首月 95 折（仅首月，续费恢复原价）；所有拍摄包月均含脚本撰写、实拍、口播、字幕、剪辑全流程。
       <br>* <b style="color:#7ee8f5">风险在我们这边：</b>首月可只签 1 个月试跑；不满意可终止合作，未交付条数按条退款。
-      <br>* 超出约定条数按单条价 9 折结算；外拍路费、场景费、道具费照实报销；不含投流费用。100 条以上可谈阶梯价。
+      <br>* 超出约定条数按单条价 9 折结算；外拍路费、场景费、道具费照实报销；不含投流费用。500 条以上可再谈。
     </p>
 
     <!-- ===== 账号代运营托管 ===== -->
