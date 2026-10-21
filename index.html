@@ -373,7 +373,10 @@ h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;c
 .ret .price{font-size:25px;font-weight:850;letter-spacing:-1px;font-variant-numeric:tabular-nums;
   background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.15}
 .ret .price small{font-size:11px;color:var(--dim);-webkit-text-fill-color:var(--dim);font-weight:400}
-.ret .was{font-size:11px;color:var(--dim);text-decoration:line-through;margin-top:2px}
+.ret .was{font-size:11px;color:#8b8ba4;margin-top:2px}
+.ret .was s{color:var(--dim);opacity:.75}
+.ret .diff{margin-top:11px;font-size:11.5px;line-height:1.55;color:#c4b5fd;font-weight:600;
+  padding:8px 11px;border-radius:8px;background:rgba(139,92,246,.1);border-left:2px solid var(--purple)}
 .ret ul{list-style:none;margin-top:13px;padding-top:12px;border-top:1px solid rgba(255,255,255,.055)}
 .ret li{font-size:11.5px;color:#b0b0c4;padding:3.5px 0 3.5px 15px;position:relative;line-height:1.6}
 .ret li::before{content:"·";position:absolute;left:4px;color:var(--purple);font-weight:900;font-size:14px}
@@ -810,9 +813,10 @@ footer .sep{opacity:.35;margin:0 8px}
     <div class="ret-grid">
       <div class="ret">
         <h5>测品版<span class="new-tag">新客95折</span></h5>
-        <div class="fit">新品测试 / 快速铺量</div>
+        <div class="fit">新品测试 / 不寄样也能做</div>
         <div class="price">¥855<small> /月</small></div>
-        <div class="was">原价 ¥900</div>
+        <div class="was"><s>原价 ¥900</s> · 折合 ¥57/条</div>
+        <div class="diff">零拍摄 · 先验证哪个卖点能跑</div>
         <ul>
           <li>纯剪 10 条 + AI 视频 5 条</li>
           <li>客户提供素材或产品图</li>
@@ -823,43 +827,47 @@ footer .sep{opacity:.35;margin:0 8px}
       <div class="ret hot">
         <div class="badge">最多人选</div>
         <h5>起量版<span class="new-tag">新客95折</span></h5>
-        <div class="fit">稳定出单 / 账号日常更新</div>
+        <div class="fit">稳定日更 / 只要产能</div>
         <div class="price">¥1,520<small> /月</small></div>
-        <div class="was">原价 ¥1,600</div>
+        <div class="was"><s>原价 ¥1,600</s> · 折合 ¥80/条</div>
+        <div class="diff">室内单场景 · 保证不断更</div>
         <ul>
           <li>拍摄 + 剪辑 20 条 / 月</li>
-          <li>含脚本 / 实拍 / 口播 / 字幕</li>
+          <li>室内单场景实拍 + 口播</li>
+          <li>含脚本 / 字幕 / 剪辑</li>
           <li>每条 1 次免费修改</li>
-          <li>含月度内容复盘</li>
         </ul>
       </div>
       <div class="ret">
         <h5>放量版<span class="new-tag">新客95折</span></h5>
-        <div class="fit">爆款放量 / 稳定日更</div>
+        <div class="fit">爆款放大 / 要多版本测试</div>
         <div class="price">¥3,800<small> /月</small></div>
-        <div class="was">原价 ¥4,000</div>
+        <div class="was"><s>原价 ¥4,000</s> · 折合 ¥76/条</div>
+        <div class="diff">一批切 4 版 + 选题库 + 数据复盘</div>
         <ul>
           <li>拍摄 + 剪辑 <b style="color:#fff">50 条</b> / 月</li>
-          <li>含脚本 / 实拍 / 口播 / 字幕</li>
-          <li>含拍摄 + 剪辑全流程</li>
-          <li>优先排期，分批交付</li>
+          <li>每批拍摄切 4 版（换开头 3 秒 / 机位 / 字幕 / BGM）</li>
+          <li>30 条/月选题库 + 爆款结构拆解</li>
+          <li>月度数据复盘 + 优先排期</li>
         </ul>
       </div>
       <div class="ret">
-        <h5>矩阵版</h5>
-        <div class="fit">多账号矩阵 / 大批量</div>
+        <h5>矩阵版<span class="new-tag" style="background:var(--cyan)">多号 + 外语</span></h5>
+        <div class="fit">多账号矩阵 / 跨境多语区</div>
         <div class="price" style="font-size:20px">价格协商</div>
         <div class="was">100 条以上 / 月</div>
+        <div class="diff" style="color:#7ee8f5;background:rgba(34,211,238,.09);border-left-color:var(--cyan)">多号分发防判重 + 外语版本</div>
         <ul>
-          <li>拍摄 + 剪辑 <b style="color:#fff">100 条以上</b></li>
-          <li>含脚本 / 实拍 / 口播 / 字幕</li>
-          <li>含拍摄 + 剪辑全流程</li>
-          <li>专属对接人 + 周会同步</li>
+          <li>拍摄 + 剪辑 <b style="color:#fff">100 条以上</b> / 月</li>
+          <li>多账号分发、同素材防判重</li>
+          <li>含英 / 日外语版本（配音 + 字幕）</li>
+          <li>专属对接人 + 周会 + 竞品排他</li>
         </ul>
       </div>
     </div>
     <p class="price-note">
-      * 新客首月 95 折（仅首月，续费恢复原价）；所有拍摄包月均含 <b style="color:#d8d8e8">脚本撰写、实拍、口播、字幕、剪辑</b> 全流程。
+      * 四档的本质差别：<b style="color:#d8d8e8">测品版不拍摄只剪辑</b>（验证方向）→ <b style="color:#d8d8e8">起量版室内单场景</b>（要产能）→ <b style="color:#d8d8e8">放量版切版 + 选题库 + 复盘</b>（要测试迭代）→ <b style="color:#d8d8e8">矩阵版多号 + 外语 + 专属服务</b>（要铺量出海）。
+      <br>* 新客首月 95 折（仅首月，续费恢复原价）；所有拍摄包月均含脚本撰写、实拍、口播、字幕、剪辑全流程。
       <br>* 超出约定条数按单条价 9 折结算；外拍路费、场景费、道具费照实报销；不含投流费用。100 条以上可谈阶梯价。
     </p>
 
