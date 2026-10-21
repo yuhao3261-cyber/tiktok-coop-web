@@ -174,10 +174,17 @@ h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;c
 .srv .price-hint b{color:#fff;font-size:15px;font-weight:800}
 
 /* ===== 案例 ===== */
+.case-stats{display:flex;gap:30px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid var(--line2)}
+.case-stats>div{display:flex;flex-direction:column;gap:1px}
+.case-stats b{font-size:21px;font-weight:850;letter-spacing:-.5px;font-variant-numeric:tabular-nums;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.25}
+.case-stats span{font-size:11px;color:var(--dim)}
 .filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:30px}
 .chip{font-size:13px;padding:7px 17px;border-radius:999px;cursor:pointer;transition:.22s;
   border:1px solid var(--line2);background:rgba(255,255,255,.025);color:var(--mut)}
 .chip:hover{border-color:rgba(139,92,246,.5);color:#fff}
+.chip .cnt{font-size:10.5px;opacity:.62;margin-left:5px;font-variant-numeric:tabular-nums}
+.chip.on .cnt{opacity:.85}
 .chip.on{background:var(--grad);border-color:transparent;color:#fff;font-weight:700;
   box-shadow:0 4px 18px rgba(139,92,246,.35)}
 .works-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:16px}
@@ -216,6 +223,10 @@ h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;c
   padding:8px 22px;border-radius:999px;white-space:nowrap}
 
 /* ===== 报价 ===== */
+.subhead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:0 0 14px}
+.subhead h3{font-size:18.5px;font-weight:800;letter-spacing:-.3px}
+.subhead span{font-size:12.5px;color:var(--dim)}
+.price-note{margin-top:14px;font-size:12px;color:var(--dim);line-height:1.8}
 .price-grid{display:grid;grid-template-columns:1fr;gap:20px}
 .price-card{border:1px solid var(--line);border-radius:20px;overflow:hidden;
   background:linear-gradient(170deg,rgba(22,22,36,.72),rgba(11,11,18,.88))}
@@ -279,6 +290,76 @@ h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;c
 .pm h5{font-size:14px;font-weight:700;margin-bottom:3px}
 .pm p{font-size:12.5px;color:var(--dim);line-height:1.65}
 
+/* ===== 内容生产体系 ===== */
+.vs-wrap{display:grid;grid-template-columns:1fr 56px 1fr;gap:18px;align-items:stretch}
+.vs-col{border:1px solid var(--line2);border-radius:18px;padding:24px 22px;background:rgba(18,18,30,.55)}
+.vs-col.us{border-color:rgba(139,92,246,.4);background:linear-gradient(165deg,rgba(139,92,246,.13),rgba(18,18,30,.86))}
+.vs-col h4{font-size:14px;font-weight:800;margin-bottom:14px;letter-spacing:.3px}
+.vs-col.old h4{color:#9a9aae}
+.vs-col.us h4{color:#c4b5fd}
+.vs-item{display:flex;gap:10px;padding:9px 0;border-top:1px solid rgba(255,255,255,.05);
+  font-size:13px;color:#b9b9cc;line-height:1.62}
+.vs-item:first-of-type{border-top:none}
+.vs-item .m{flex-shrink:0;width:17px;height:17px;border-radius:5px;display:flex;align-items:center;
+  justify-content:center;font-size:10px;font-weight:900;margin-top:2px}
+.vs-item .m.no{background:rgba(239,68,68,.15);color:#f87171}
+.vs-item .m.yes{background:rgba(74,222,128,.15);color:#4ade80}
+.vs-arrow{display:flex;align-items:center;justify-content:center;font-size:24px;
+  color:var(--purple);opacity:.65}
+
+.cap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:20px}
+.cap{border:1px solid var(--line2);border-radius:14px;padding:18px 16px;
+  background:rgba(255,255,255,.022);transition:.28s}
+.cap:hover{border-color:rgba(139,92,246,.45);transform:translateY(-3px);
+  background:rgba(139,92,246,.05)}
+.cap .n{font-size:10.5px;font-weight:900;color:var(--purple);letter-spacing:1.4px;margin-bottom:7px}
+.cap h5{font-size:13.5px;font-weight:700;margin-bottom:4px}
+.cap p{font-size:11.5px;color:var(--dim);line-height:1.62}
+
+/* 三段制作流程 */
+.stage3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.stg{border:1px solid var(--line2);border-radius:16px;padding:22px 20px;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,rgba(22,22,36,.75),rgba(11,11,18,.88))}
+.stg::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--grad)}
+.stg .st{font-size:11px;letter-spacing:2px;color:var(--cyan);font-weight:700;margin-bottom:8px}
+.stg h5{font-size:15px;font-weight:800;margin-bottom:10px}
+.stg p{font-size:12.5px;color:#a9a9be;line-height:1.8}
+.stg p b{color:#e8e8f2;font-weight:600}
+
+/* 周期时间轴 */
+.cycle{display:grid;grid-template-columns:.9fr 1.7fr 1fr .8fr;gap:12px;margin-top:22px}
+.cy{border:1px solid var(--line2);border-radius:15px;padding:20px 18px;
+  background:rgba(18,18,30,.6);transition:.28s}
+.cy:hover{border-color:rgba(139,92,246,.4)}
+.cy.main{border-color:rgba(139,92,246,.42);
+  background:linear-gradient(160deg,rgba(139,92,246,.12),rgba(18,18,30,.86))}
+.cy .ct{font-size:10.5px;color:var(--cyan);letter-spacing:1.3px;margin-bottom:7px;font-weight:700}
+.cy h5{font-size:14.5px;font-weight:800;margin-bottom:9px;line-height:1.4}
+.cy p{font-size:11.5px;color:var(--dim);line-height:1.7}
+.cy .mini{display:flex;flex-wrap:wrap;gap:5px;margin-top:11px}
+.cy .mini span{font-size:10.5px;padding:3px 8px;border-radius:5px;
+  background:rgba(139,92,246,.13);color:#c4b5fd;white-space:nowrap}
+
+/* 代运营套餐 */
+.ret-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:14px}
+.ret{border:1px solid var(--line2);border-radius:18px;padding:24px 20px;position:relative;
+  background:linear-gradient(170deg,rgba(22,22,36,.8),rgba(11,11,18,.9));transition:.3s}
+.ret:hover{transform:translateY(-4px);border-color:rgba(139,92,246,.45);
+  box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.ret.hot{border-color:rgba(236,72,153,.48);box-shadow:0 0 0 1px rgba(236,72,153,.16)}
+.ret .badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);font-size:10.5px;
+  font-weight:800;color:#0a0a12;padding:3px 13px;border-radius:999px;
+  background:linear-gradient(90deg,#f472b6,#ec4899);white-space:nowrap}
+.ret h5{font-size:15px;font-weight:800;margin-bottom:3px}
+.ret .fit{font-size:11.5px;color:var(--cyan);margin-bottom:13px}
+.ret .price{font-size:25px;font-weight:850;letter-spacing:-1px;font-variant-numeric:tabular-nums;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.15}
+.ret .price small{font-size:11px;color:var(--dim);-webkit-text-fill-color:var(--dim);font-weight:400}
+.ret .was{font-size:11px;color:var(--dim);text-decoration:line-through;margin-top:2px}
+.ret ul{list-style:none;margin-top:13px;padding-top:12px;border-top:1px solid rgba(255,255,255,.055)}
+.ret li{font-size:11.5px;color:#b0b0c4;padding:3.5px 0 3.5px 15px;position:relative;line-height:1.6}
+.ret li::before{content:"·";position:absolute;left:4px;color:var(--purple);font-weight:900;font-size:14px}
+
 /* ===== FAQ ===== */
 .faq-list{max-width:840px}
 .faq-item{border:1px solid var(--line2);border-radius:14px;margin-bottom:11px;
@@ -341,6 +422,12 @@ footer .sep{opacity:.35;margin:0 8px}
   .flow-line{grid-template-columns:1fr 1fr;gap:22px}
   .flow-line::before{display:none}
   .trust-inner{grid-template-columns:1fr 1fr}
+  .vs-wrap{grid-template-columns:1fr;gap:12px}
+  .vs-arrow{transform:rotate(90deg);padding:4px 0}
+  .cap-grid{grid-template-columns:repeat(2,1fr)}
+  .stage3{grid-template-columns:1fr}
+  .cycle{grid-template-columns:1fr 1fr}
+  .ret-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:720px){
   section{padding:72px 6vw}
@@ -354,6 +441,9 @@ footer .sep{opacity:.35;margin:0 8px}
   .contact-grid{grid-template-columns:1fr}
   .trust-inner{grid-template-columns:1fr}
   .flow-line{grid-template-columns:1fr}
+  .cap-grid{grid-template-columns:1fr}
+  .cycle{grid-template-columns:1fr}
+  .ret-grid{grid-template-columns:1fr}
   h1{letter-spacing:-1px}
   .works-grid{grid-template-columns:repeat(2,1fr);gap:12px}
   .work .wtitle{font-size:11.5px;padding:22px 10px 9px}
@@ -377,6 +467,7 @@ footer .sep{opacity:.35;margin:0 8px}
   <div class="nav-right">
     <ul class="nav-links" id="navLinks">
       <li><a href="#perf">业绩</a></li>
+      <li><a href="#system">体系</a></li>
       <li><a href="#services">服务</a></li>
       <li><a href="#cases">案例</a></li>
       <li><a href="#pricing">报价</a></li>
@@ -506,6 +597,72 @@ footer .sep{opacity:.35;margin:0 8px}
   </div>
 </section>
 
+<!-- ===== 内容生产体系 ===== -->
+<section id="system">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">System</span>
+      <h2>标准化内容生产 · <em>不是自由接单</em></h2>
+      <p class="lead">
+        把短视频交付拆成可复制的流水线：脚本模板、拍摄规范、剪辑标准、数据复盘。
+        相比临时找个人拍一条，稳定、可控、能放量。
+      </p>
+    </div>
+
+    <div class="vs-wrap">
+      <div class="vs-col old">
+        <h4>传统外包 / 自由接单</h4>
+        <div class="vs-item"><span class="m no">✕</span><span>脚本与内容不可控，质量看个人状态</span></div>
+        <div class="vs-item"><span class="m no">✕</span><span>档期不稳定，急单排不进去</span></div>
+        <div class="vs-item"><span class="m no">✕</span><span>每条风格不一，账号内容不成体系</span></div>
+        <div class="vs-item"><span class="m no">✕</span><span>修改来回沟通，没有明确标准</span></div>
+        <div class="vs-item"><span class="m no">✕</span><span>交付即结束，没有数据复盘</span></div>
+      </div>
+      <div class="vs-arrow">→</div>
+      <div class="vs-col us">
+        <h4>我们的标准化交付</h4>
+        <div class="vs-item"><span class="m yes">✓</span><span>脚本先行确认，按卖点结构产出，可控可改</span></div>
+        <div class="vs-item"><span class="m yes">✓</span><span>产能稳定，最快 7 天交付，批量可排期</span></div>
+        <div class="vs-item"><span class="m yes">✓</span><span>统一视觉与节奏规范，账号调性一致</span></div>
+        <div class="vs-item"><span class="m yes">✓</span><span>1 次免费修改，超出部分明码计费</span></div>
+        <div class="vs-item"><span class="m yes">✓</span><span>月度合作附内容表现复盘与优化建议</span></div>
+      </div>
+    </div>
+
+    <div class="cap-grid">
+      <div class="cap"><div class="n">01</div><h5>全流程把控</h5><p>脚本 → 拍摄 → 剪辑 → 字幕配音，一条链路交付</p></div>
+      <div class="cap"><div class="n">02</div><h5>多品类适配</h5><p>宠物 / 五金 / 饰品 / 家居 / 小家电 / 3C 数码</p></div>
+      <div class="cap"><div class="n">03</div><h5>多语种口播</h5><p>英 / 日 / 东南亚语种文案与配音</p></div>
+      <div class="cap"><div class="n">04</div><h5>实拍 + AI 双产线</h5><p>实拍保真实感，AI 保产能，按需配比</p></div>
+      <div class="cap"><div class="n">05</div><h5>批量产能</h5><p>支持月 500 条以上批量交付，提前排期</p></div>
+      <div class="cap"><div class="n">06</div><h5>素材版权清晰</h5><p>原始素材可交付，二次剪辑权归品牌方</p></div>
+      <div class="cap"><div class="n">07</div><h5>爆款结构复用</h5><p>按数据反馈复用高完播结构，持续迭代</p></div>
+      <div class="cap"><div class="n">08</div><h5>企业化协作</h5><p>合同 / 发票 / 固定对接人 / 进度可查</p></div>
+    </div>
+
+    <div class="stage3">
+      <div class="stg">
+        <div class="st">前期</div>
+        <h5>选品与策划</h5>
+        <p><b>寄样选品</b> → <b>卖点分析</b> → <b>脚本创作</b> → <b>拍摄计划</b><br>
+        先确认"这条片子要说什么"，再开机，避免拍完才发现方向不对。</p>
+      </div>
+      <div class="stg">
+        <div class="st">中期</div>
+        <h5>拍摄与素材</h5>
+        <p><b>场景布置</b> → <b>灯光与服化道</b> → <b>实拍 / 口播录制</b> → <b>素材清洗归档</b><br>
+        影棚与实景两类场景，按品类匹配最合适的呈现方式。</p>
+      </div>
+      <div class="stg">
+        <div class="st">后期</div>
+        <h5>精剪与交付</h5>
+        <p><b>人工精剪</b> → <b>字幕 / 配音 / 音效</b> → <b>成片验收</b> → <b>数据反馈</b><br>
+        交付后跟踪播放与转化表现，把有效结构沉淀成模板。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== 服务 ===== -->
 <section id="services">
   <div class="wrap">
@@ -568,6 +725,12 @@ footer .sep{opacity:.35;margin:0 8px}
         以下是部分合作案例（非全部交付记录），点击卡片在线观看。
         样片均已加水印，<b style="color:#c9c9da">仅供参考，请勿转载或商用</b>。
       </p>
+      <div class="case-stats">
+        <div><b>14</b><span>支交付样片</span></div>
+        <div><b>7</b><span>大品类覆盖</span></div>
+        <div><b>3</b><span>投放市场</span></div>
+        <div><b>15–30s</b><span>竖屏成片</span></div>
+      </div>
     </div>
     <div class="filters" id="filters"></div>
     <div class="works-grid" id="worksGrid"></div>
@@ -583,7 +746,72 @@ footer .sep{opacity:.35;margin:0 8px}
     <div class="sec-head">
       <span class="sec-tag">Pricing</span>
       <h2>明码标价 · <em>无隐形费用</em></h2>
-      <p class="lead">按条计费，企业主体签约。批量合作与长期合作可另议阶梯价。</p>
+      <p class="lead">两种合作方式：包月代运营更省心，按条计价更灵活。企业主体签约，批量可另议阶梯价。</p>
+    </div>
+
+    <!-- ===== 代运营月度套餐 ===== -->
+    <div class="subhead">
+      <h3>代拍剪 · 月度代运营套餐</h3>
+      <span>包月更省心：含选题、脚本、拍摄或剪辑、月度复盘</span>
+    </div>
+    <div class="ret-grid">
+      <div class="ret">
+        <h5>测品版</h5>
+        <div class="fit">新品测试 / 快速铺量</div>
+        <div class="price">¥800<small> /月</small></div>
+        <div class="was">单条合计约 ¥900</div>
+        <ul>
+          <li>纯剪 10 条 + AI 视频 5 条</li>
+          <li>客户提供素材或产品图</li>
+          <li>含选题建议与字幕包装</li>
+          <li>首批最快 7 天交付</li>
+        </ul>
+      </div>
+      <div class="ret hot">
+        <div class="badge">最多人选</div>
+        <h5>起量版</h5>
+        <div class="fit">稳定出单 / 账号日常更新</div>
+        <div class="price">¥1,800<small> /月</small></div>
+        <div class="was">单条合计约 ¥2,000</div>
+        <ul>
+          <li>拍摄 + 剪辑 20 条 / 月</li>
+          <li>含脚本策划与场景设计</li>
+          <li>每条 1 次免费修改</li>
+          <li>含月度内容复盘</li>
+        </ul>
+      </div>
+      <div class="ret">
+        <h5>放量版</h5>
+        <div class="fit">爆款放量 / 多形态内容</div>
+        <div class="price">¥4,300<small> /月</small></div>
+        <div class="was">单条合计约 ¥5,000</div>
+        <ul>
+          <li>拍摄剪辑 40 条 + 纯剪 20 条</li>
+          <li>实拍 / 口播 / AI 混合配比</li>
+          <li>优先排期，分批交付</li>
+          <li>含复盘与迭代建议</li>
+        </ul>
+      </div>
+      <div class="ret">
+        <h5>矩阵版</h5>
+        <div class="fit">多账号矩阵 / 大批量</div>
+        <div class="price">¥7,800<small> 起/月</small></div>
+        <div class="was">100 条起，阶梯价另议</div>
+        <ul>
+          <li>100 条以上 / 月，定制配比</li>
+          <li>专属对接人 + 周会同步</li>
+          <li>多语种口播与字幕</li>
+          <li>可签长期框架协议</li>
+        </ul>
+      </div>
+    </div>
+    <p class="price-note">
+      * 套餐价为标准档位核算价，超出条数按单条价 9 折结算；外拍路费、场景费、道具费照实报销；不含投流费用。
+    </p>
+
+    <div class="subhead" style="margin-top:44px">
+      <h3>按条计价 · 三条业务线</h3>
+      <span>不打包，按实际条数结算</span>
     </div>
 
     <div class="price-grid">
@@ -656,15 +884,41 @@ footer .sep{opacity:.35;margin:0 8px}
   <div class="wrap">
     <div class="sec-head">
       <span class="sec-tag">Process</span>
-      <h2>合作流程 · <em>五步交付</em></h2>
-      <p class="lead">从需求确认到成片交付，每一步都有明确产出与时间节点。</p>
+      <h2>合作流程 · <em>周期化交付</em></h2>
+      <p class="lead">
+        不是"交完一批就结束"。按周期滚动：先跑通内容模型，再按数据逐月迭代放量，
+        每个周期都有明确的产出与复盘节点。
+      </p>
     </div>
-    <div class="flow-line">
-      <div class="fstep2"><div class="dot">01</div><h4>需求沟通</h4><p>确认产品、业务线、时长档位与参考风格</p></div>
-      <div class="fstep2"><div class="dot">02</div><h4>方案报价</h4><p>输出拍摄 / 剪辑方案与明细报价，双方确认</p></div>
-      <div class="fstep2"><div class="dot">03</div><h4>签约预付</h4><p>企业合同签署，预付 50%（月结 30%）</p></div>
-      <div class="fstep2"><div class="dot">04</div><h4>执行交付</h4><p>寄样 / 脚本确认 → 拍摄或生成 → 精剪成片</p></div>
-      <div class="fstep2"><div class="dot">05</div><h4>验收修改</h4><p>成片验收，含 1 次免费修改，确认后结清</p></div>
+
+    <div class="cycle">
+      <div class="cy">
+        <div class="ct">STEP 0</div>
+        <h5>沟通签约<br><span style="font-size:11.5px;color:var(--dim);font-weight:400">1–3 天</span></h5>
+        <p>30 分钟需求沟通 → 输出方案与明细报价 → 签约、预付 50%</p>
+        <div class="mini"><span>需求沟通</span><span>方案报价</span><span>签约打款</span></div>
+      </div>
+      <div class="cy main">
+        <div class="ct">CYCLE 1 · 约 30 天</div>
+        <h5>第一周期 · 跑通内容模型</h5>
+        <p>脚本确认后开工，按排期分批交付；先小批量测结构，再放大。</p>
+        <div class="mini">
+          <span>卖点分析 2–3 天</span><span>脚本确认 2–3 天</span><span>拍摄 / 素材 3–5 天</span>
+          <span>精剪成片 3–5 天</span><span>交付验收</span><span>数据观察 7 天</span>
+        </div>
+      </div>
+      <div class="cy">
+        <div class="ct">CYCLE 2 · 约 30 天</div>
+        <h5>第二周期 · 迭代放量</h5>
+        <p>按上一周期数据，保留高完播结构，替换低效选题，逐月加量。</p>
+        <div class="mini"><span>数据复盘</span><span>选题迭代</span><span>批量交付</span></div>
+      </div>
+      <div class="cy">
+        <div class="ct">LONG TERM</div>
+        <h5>长期合作</h5>
+        <p>框架协议、优先排期、专属对接人，按季度调整产能。</p>
+        <div class="mini"><span>框架价</span><span>优先排期</span><span>月度复盘</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -807,6 +1061,7 @@ footer .sep{opacity:.35;margin:0 8px}
   const grid = document.getElementById('worksGrid');
   const filters = document.getElementById('filters');
   const cats = ['全部', ...Array.from(new Set(CASES.map(c => c.cat)))];
+  const countOf = cat => cat === '全部' ? CASES.length : CASES.filter(c => c.cat === cat).length;
 
   // 生成卡片
   CASES.forEach((c, i) => {
@@ -827,7 +1082,7 @@ footer .sep{opacity:.35;margin:0 8px}
   cats.forEach((cat, i) => {
     const b = document.createElement('button');
     b.className = 'chip' + (i === 0 ? ' on' : '');
-    b.textContent = cat;
+    b.innerHTML = cat + '<span class="cnt">' + countOf(cat) + '</span>';
     b.addEventListener('click', () => {
       document.querySelectorAll('.chip').forEach(x => x.classList.remove('on'));
       b.classList.add('on');
