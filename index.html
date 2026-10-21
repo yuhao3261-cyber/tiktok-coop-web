@@ -378,6 +378,40 @@ h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;c
 .ret li{font-size:11.5px;color:#b0b0c4;padding:3.5px 0 3.5px 15px;position:relative;line-height:1.6}
 .ret li::before{content:"·";position:absolute;left:4px;color:var(--purple);font-weight:900;font-size:14px}
 
+/* ===== 托管代运营对比表 ===== */
+.op-wrap{margin-top:16px;border:1px solid var(--line);border-radius:20px;overflow:hidden;
+  background:linear-gradient(170deg,rgba(22,22,36,.78),rgba(11,11,18,.9))}
+.op-scroll{overflow-x:auto}
+table.op{width:100%;border-collapse:collapse;min-width:760px}
+.op th,.op td{padding:12px 16px;text-align:center;font-size:12.8px;border-top:1px solid var(--line2)}
+.op thead th{padding:20px 16px 16px;background:rgba(139,92,246,.05);vertical-align:bottom}
+.op thead th:first-child{text-align:left;font-size:11px;color:var(--dim);letter-spacing:1.6px;font-weight:600}
+.op .tiername{font-size:15.5px;font-weight:800;color:#fff;display:block;line-height:1.3}
+.op .tierdesc{font-size:10.5px;color:var(--dim);font-weight:400;margin-top:4px;display:block;line-height:1.5}
+.op .price{font-size:23px;font-weight:850;letter-spacing:-.8px;font-variant-numeric:tabular-nums;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;display:block;margin-top:9px}
+.op .price small{font-size:10.5px;color:var(--dim);-webkit-text-fill-color:var(--dim);font-weight:400}
+.op td:first-child{text-align:left;color:var(--mut);font-size:12px;background:rgba(255,255,255,.016);white-space:nowrap}
+.op td{color:#cfcfdf}
+.op .hi{background:rgba(236,72,153,.055)}
+.op thead th.hi{background:rgba(236,72,153,.1);position:relative}
+.op .reco{position:absolute;top:0;left:50%;transform:translateX(-50%);font-size:9.5px;font-weight:800;
+  color:#0a0a12;background:linear-gradient(90deg,#f472b6,#ec4899);padding:2px 11px;border-radius:0 0 7px 7px;white-space:nowrap}
+.op .yes{color:#4ade80;font-weight:700}
+.op .no{color:#45455c}
+.op tbody tr:hover td{background:rgba(139,92,246,.05)}
+
+/* 新客标签 */
+.new-tag{display:inline-block;font-size:9.5px;font-weight:800;color:#0a0a12;background:var(--gold);
+  padding:2px 7px;border-radius:5px;margin-left:5px;vertical-align:middle;letter-spacing:.3px}
+
+/* 合作须知 */
+.terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px;margin-top:18px}
+.term{border:1px solid var(--line2);border-radius:14px;padding:16px 18px;background:rgba(255,255,255,.02)}
+.term h5{font-size:13px;font-weight:700;margin-bottom:5px;display:flex;align-items:center;gap:7px}
+.term p{font-size:11.5px;color:var(--dim);line-height:1.78}
+.term p b{color:#d6d6e6;font-weight:600}
+
 /* ===== FAQ ===== */
 .faq-list{max-width:840px}
 .faq-item{border:1px solid var(--line2);border-radius:14px;margin-bottom:11px;
@@ -765,67 +799,113 @@ footer .sep{opacity:.35;margin:0 8px}
     <div class="sec-head">
       <span class="sec-tag">Pricing</span>
       <h2>明码标价 · <em>无隐形费用</em></h2>
-      <p class="lead">两种合作方式：包月代运营更省心，按条计价更灵活。企业主体签约，批量可另议阶梯价。</p>
+      <p class="lead">三种合作方式：代拍剪包月（按条数）、账号代运营托管（按账号）、按条散单。企业主体签约，新客首月 95 折。</p>
     </div>
 
     <!-- ===== 代运营月度套餐 ===== -->
     <div class="subhead">
-      <h3>代拍剪 · 月度代运营套餐</h3>
-      <span>包月更省心：含选题、脚本、拍摄或剪辑、月度复盘</span>
+      <h3>代拍剪包月 · 按条数计费</h3>
+      <span>只买产能：脚本 + 拍摄 + 剪辑 + 口播 + 字幕，按条数结算</span>
     </div>
     <div class="ret-grid">
       <div class="ret">
-        <h5>测品版</h5>
+        <h5>测品版<span class="new-tag">新客95折</span></h5>
         <div class="fit">新品测试 / 快速铺量</div>
-        <div class="price">¥800<small> /月</small></div>
-        <div class="was">单条合计约 ¥900</div>
+        <div class="price">¥855<small> /月</small></div>
+        <div class="was">原价 ¥900</div>
         <ul>
           <li>纯剪 10 条 + AI 视频 5 条</li>
           <li>客户提供素材或产品图</li>
-          <li>含选题建议与字幕包装</li>
+          <li>含选题建议 + 字幕包装</li>
           <li>首批最快 7 天交付</li>
         </ul>
       </div>
       <div class="ret hot">
         <div class="badge">最多人选</div>
-        <h5>起量版</h5>
+        <h5>起量版<span class="new-tag">新客95折</span></h5>
         <div class="fit">稳定出单 / 账号日常更新</div>
-        <div class="price">¥1,800<small> /月</small></div>
-        <div class="was">单条合计约 ¥2,000</div>
+        <div class="price">¥1,520<small> /月</small></div>
+        <div class="was">原价 ¥1,600</div>
         <ul>
           <li>拍摄 + 剪辑 20 条 / 月</li>
-          <li>含脚本策划与场景设计</li>
+          <li>含脚本 / 实拍 / 口播 / 字幕</li>
           <li>每条 1 次免费修改</li>
           <li>含月度内容复盘</li>
         </ul>
       </div>
       <div class="ret">
-        <h5>放量版</h5>
-        <div class="fit">爆款放量 / 多形态内容</div>
-        <div class="price">¥4,300<small> /月</small></div>
-        <div class="was">单条合计约 ¥5,000</div>
+        <h5>放量版<span class="new-tag">新客95折</span></h5>
+        <div class="fit">爆款放量 / 稳定日更</div>
+        <div class="price">¥3,800<small> /月</small></div>
+        <div class="was">原价 ¥4,000</div>
         <ul>
-          <li>拍摄剪辑 40 条 + 纯剪 20 条</li>
-          <li>实拍 / 口播 / AI 混合配比</li>
+          <li>拍摄 + 剪辑 <b style="color:#fff">50 条</b> / 月</li>
+          <li>含脚本 / 实拍 / 口播 / 字幕</li>
+          <li>含拍摄 + 剪辑全流程</li>
           <li>优先排期，分批交付</li>
-          <li>含复盘与迭代建议</li>
         </ul>
       </div>
       <div class="ret">
         <h5>矩阵版</h5>
         <div class="fit">多账号矩阵 / 大批量</div>
-        <div class="price">¥7,800<small> 起/月</small></div>
-        <div class="was">100 条起，阶梯价另议</div>
+        <div class="price" style="font-size:20px">价格协商</div>
+        <div class="was">100 条以上 / 月</div>
         <ul>
-          <li>100 条以上 / 月，定制配比</li>
+          <li>拍摄 + 剪辑 <b style="color:#fff">100 条以上</b></li>
+          <li>含脚本 / 实拍 / 口播 / 字幕</li>
+          <li>含拍摄 + 剪辑全流程</li>
           <li>专属对接人 + 周会同步</li>
-          <li>多语种口播与字幕</li>
-          <li>可签长期框架协议</li>
         </ul>
       </div>
     </div>
     <p class="price-note">
-      * 套餐价为标准档位核算价，超出条数按单条价 9 折结算；外拍路费、场景费、道具费照实报销；不含投流费用。
+      * 新客首月 95 折（仅首月，续费恢复原价）；所有拍摄包月均含 <b style="color:#d8d8e8">脚本撰写、实拍、口播、字幕、剪辑</b> 全流程。
+      <br>* 超出约定条数按单条价 9 折结算；外拍路费、场景费、道具费照实报销；不含投流费用。100 条以上可谈阶梯价。
+    </p>
+
+    <!-- ===== 账号代运营托管 ===== -->
+    <div class="subhead" style="margin-top:48px">
+      <h3>账号代运营托管 · TikTok 内容创作</h3>
+      <span>内容 + 发布 + 数据 + 迭代，一个账号一个负责人跟到底</span>
+    </div>
+    <p style="font-size:12.5px;color:var(--dim);line-height:1.85;margin-bottom:4px">
+      不是"帮你多拍几条视频"，而是把账号当成一个渠道来经营：定位 → 选题 → 拍摄 → 发布 → 复盘迭代，
+      按周推进、按数据调整。你只管产品、样品和发货，账号这条线我们接走。
+    </p>
+    <div class="op-wrap">
+      <div class="op-scroll">
+        <table class="op">
+          <thead>
+            <tr>
+              <th>服务内容</th>
+              <th>冷启版<span class="tierdesc">1 个主号<br>先把号跑起来</span><span class="price">¥3,800<small>/月</small></span></th>
+              <th class="hi"><span class="reco">推荐</span>增长版<span class="tierdesc">主号 + 副号<br>一起做</span><span class="price">¥7,300<small>/月</small></span></th>
+              <th>旗舰版<span class="tierdesc">3 个号<br>+ 外语版本</span><span class="price">¥12,800<small>/月</small></span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>托管账号数</td><td>1 个（主号）</td><td class="hi">2 个（主 + 副）</td><td>3 个（主 + 2 副）</td></tr>
+            <tr><td>月发布条数</td><td>30 条</td><td class="hi">50 条</td><td>70 条</td></tr>
+            <tr><td>发布节奏</td><td>每天 1 条</td><td class="hi">主号每天 1 条<br>副号每周 5 条</td><td>主号每天 1 条<br>副号各每周 5 条</td></tr>
+            <tr><td>拍摄批次 / 每批切版</td><td>8 批 × 4 版</td><td class="hi">12 批 × 4 版</td><td>17 批 × 4 版</td></tr>
+            <tr><td>选题库</td><td>20 条 / 月</td><td class="hi">30 条 / 月</td><td>40 条 / 月</td></tr>
+            <tr><td>脚本撰写</td><td class="yes">含</td><td class="hi yes">含</td><td class="yes">含</td></tr>
+            <tr><td>拍摄 + 剪辑</td><td class="yes">含</td><td class="hi yes">含</td><td class="yes">含</td></tr>
+            <tr><td>发布与首评维护</td><td class="yes">含</td><td class="hi yes">含</td><td class="yes">含</td></tr>
+            <tr><td>周报 / 月报复盘</td><td>月报</td><td class="hi">周报 + 月报</td><td>周报 + 月报 + 复盘会</td></tr>
+            <tr><td>对标账号拆解</td><td>首月 3 个</td><td class="hi">每月 3 个</td><td>每月 6 个</td></tr>
+            <tr><td>封面标题 A/B 测试</td><td class="no">—</td><td class="hi yes">含</td><td class="yes">含</td></tr>
+            <tr><td>外语版本（英 / 日 配音 + 字幕）</td><td class="no">—</td><td class="hi no">—</td><td class="yes">含</td></tr>
+            <tr><td>对接方式</td><td>微信直连</td><td class="hi">微信直连</td><td>专属群 + 48 小时响应</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="price-note">
+      * 发布条数按「可发布成片」计：同一次拍摄切出的不同版本计入条数，每批不少于 4 版（换开头 3 秒 / 换机位 / 换字幕 / 换 BGM）。
+      <br>* 季付 9 折、半年付 85 折；首月可只签 1 个月试跑，跑完不满意可终止，未交付条数按条退款。
+      <br>* 常规室内场景拍摄；指定实景（门店 / 户外 / 露台 / 特定宠物或模特）需另约时间与费用。
+      <br>* 宠物 / 家居日用 / 数码配件 / 小家电 / 饰品等类目均可承接，按类目定制选题方向。
     </p>
 
     <div class="subhead" style="margin-top:44px">
@@ -894,6 +974,26 @@ footer .sep{opacity:.35;margin:0 8px}
       <div class="rule"><span class="k">⏱️</span><div><h5>交付周期</h5><p>纯剪最快 7 天交付；拍摄剪辑类收到样品后安排拍摄，约一周</p></div></div>
       <div class="rule"><span class="k">📅</span><div><h5>排期建议</h5><p>旺季与批量需求建议提前 2 周预定排期，避免撞档</p></div></div>
       <div class="rule"><span class="k">💳</span><div><h5>付款方式</h5><p>单次预付 50%；月度合作预付 30%，交付后结清</p></div></div>
+    </div>
+
+    <!-- ===== 合作须知（乙方接单口径）===== -->
+    <div class="subhead" style="margin-top:56px">
+      <h3>合作须知 · 接单口径</h3>
+      <span>先看清规则，再谈合作，双方都省时间</span>
+    </div>
+    <div class="terms">
+      <div class="term"><h5>📦 样品与起算</h5><p>拍摄类由甲方寄样，<b>运费甲方承担</b>；样品签收后起算交付周期。只做剪辑的无需寄样，素材与脚本由甲方提供。</p></div>
+      <div class="term"><h5>🗓️ 排期规则</h5><p>包月客户每月 <b>25 日前</b>提交下月清单，按月批量排期；<b>不接插队急单</b>。旺季建议提前 2 周锁定档期。</p></div>
+      <div class="term"><h5>✏️ 修改边界</h5><p>每条成片含 <b>1 次免费修改</b>（换字幕 / 换音乐 / 调节奏）。更换脚本主题、重拍镜头视为新条，另行计费。</p></div>
+      <div class="term"><h5>🔢 条数计算</h5><p>按 <b>「可用成片」</b> 计。废片、重拍不计入当月条数；换字幕 / 换音乐 / 调节奏属免费修改，不另算新条。</p></div>
+      <div class="term"><h5>💳 付款节点</h5><p>签约付 <b>50%</b> 启动，当月交付完成后结清余款；试单为全款预付，签约包月后 <b>100% 抵扣首月</b>费用。</p></div>
+      <div class="term"><h5>🚫 费用不含</h5><p>寄样运费、外拍路费、指定场景场地费、外模 / 特定宠物租赁、<b>投流广告费</b>，均由甲方承担。</p></div>
+      <div class="term"><h5>📄 版权归属</h5><p>款项结清后成片版权归甲方，可用于 TikTok / 亚马逊 / 独立站等渠道；我方保留作品展示权（可要求隐去品牌）。</p></div>
+      <div class="term"><h5>⏭️ 顺延规则</h5><p>当月未拍完的条数可 <b>顺延 1 个月</b>，需提前 3 天告知，不跨季累积。</p></div>
+      <div class="term"><h5>🎯 效果口径</h5><p>我方承诺 <b>交付量与迭代动作</b>，不承诺具体播放量 / GMV —— 流量受产品力、投放策略与平台算法共同影响。</p></div>
+      <div class="term"><h5>🤝 竞品排他</h5><p>同品类、同市场只服务 <b>1 家</b>，不做客户的竞争对手。</p></div>
+      <div class="term"><h5>🧾 合同与发票</h5><p>公司主体签约，可开具 <b>增值税发票</b>，支持对公转账；交付物、周期、修改次数均书面约定。</p></div>
+      <div class="term"><h5>📵 账号环境（代运营）</h5><p>美区账号需 <b>美国独立 IP</b> 与专用手机，由甲方提供并承担费用；不与个人账号混用，避免关联风险。</p></div>
     </div>
   </div>
 </section>
