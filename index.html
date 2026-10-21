@@ -1318,9 +1318,13 @@ footer .sep{opacity:.35;margin:0 8px}
           <div class="clabel">联系电话</div>
           <div class="cval"><a href="tel:+8613322694458">+86 133 2269 4458</a></div>
         </div>
-        <div class="c-item full">
-          <div class="clabel">微信号</div>
-          <div class="cval">1905396071 <button class="copy-btn" onclick="copyWx(this)">复制微信号</button></div>
+        <div class="c-item">
+          <div class="clabel">微信号 ①</div>
+          <div class="cval">1905396071 <button class="copy-btn" data-wx="1905396071" onclick="copyWx(this)">复制</button></div>
+        </div>
+        <div class="c-item">
+          <div class="clabel">微信号 ②</div>
+          <div class="cval">FF1304089 <button class="copy-btn" data-wx="FF1304089" onclick="copyWx(this)">复制</button></div>
         </div>
       </div>
     </div>
@@ -1330,7 +1334,7 @@ footer .sep{opacity:.35;margin:0 8px}
 <footer>
   <div class="fl"><img src="assets/logo_text.png" alt="DuoFrame"></div>
   <div class="frow"><b>深圳市无限发科技有限公司</b> <span class="sep">|</span> DuoFrame 短视频内容服务</div>
-  <div class="frow">龚先生 <span class="sep">·</span> +86 133 2269 4458 <span class="sep">·</span> 微信 1905396071</div>
+  <div class="frow">龚先生 <span class="sep">·</span> +86 133 2269 4458 <span class="sep">·</span> 微信 1905396071 / FF1304089</div>
   <div class="frow">覆盖市场：🇺🇸 美区 · 🇯🇵 日区 · 🇸🇬🇲🇾🇵🇭🇹🇭 东南亚</div>
   <div class="frow" style="margin-top:14px;opacity:.7">© 2026 深圳市无限发科技有限公司 · 保留所有权利</div>
 </footer>
@@ -1467,11 +1471,11 @@ footer .sep{opacity:.35;margin:0 8px}
 
   // ===== 复制微信 =====
   function copyWx(btn) {
-    const wx = '1905396071';
+    const wx = btn.getAttribute('data-wx') || '1905396071';
     const done = () => {
       btn.textContent = '✓ 已复制'; btn.classList.add('done');
       toast('微信号已复制：' + wx);
-      setTimeout(() => { btn.textContent = '复制微信号'; btn.classList.remove('done'); }, 2000);
+      setTimeout(() => { btn.textContent = '复制'; btn.classList.remove('done'); }, 2000);
     };
     const fallback = () => {
       const ta = document.createElement('textarea');
