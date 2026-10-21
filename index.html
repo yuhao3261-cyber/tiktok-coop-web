@@ -381,6 +381,22 @@ h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;c
 .ret li{font-size:11.5px;color:#b0b0c4;padding:3.5px 0 3.5px 15px;position:relative;line-height:1.6}
 .ret li::before{content:"·";position:absolute;left:4px;color:var(--purple);font-weight:900;font-size:14px}
 
+/* 算账条 */
+.value-band{display:flex;gap:16px;align-items:flex-start;margin:0 0 22px;padding:18px 22px;
+  border:1px solid rgba(232,182,76,.25);border-radius:14px;
+  background:linear-gradient(100deg,rgba(232,182,76,.08),rgba(18,18,30,.6))}
+.value-band .vb-label{flex-shrink:0;font-size:10.5px;font-weight:900;letter-spacing:1.4px;
+  color:#0a0a12;background:var(--gold);padding:3px 9px;border-radius:6px;margin-top:2px}
+.value-band p{font-size:12.5px;line-height:1.85;color:#b9b9cc}
+.value-band p b{color:#fff;font-weight:800}
+.value-band p .hi{color:var(--gold);font-weight:800}
+
+/* 套餐钩子 */
+.ret{display:flex;flex-direction:column}
+.ret .hook{margin-top:auto;padding-top:12px;border-top:1px dashed rgba(139,92,246,.28);
+  font-size:11.5px;color:#a8a8c0;line-height:1.65}
+.ret .hook b{color:#ded0ff;font-weight:700}
+
 /* ===== 托管代运营对比表 ===== */
 .op-wrap{margin-top:16px;border:1px solid var(--line);border-radius:20px;overflow:hidden;
   background:linear-gradient(170deg,rgba(22,22,36,.78),rgba(11,11,18,.9))}
@@ -810,59 +826,71 @@ footer .sep{opacity:.35;margin:0 8px}
       <h3>代拍剪包月 · 按条数计费</h3>
       <span>只买产能：脚本 + 拍摄 + 剪辑 + 口播 + 字幕，按条数结算</span>
     </div>
+    <div class="value-band">
+      <span class="vb-label">算笔账</span>
+      <p>
+        自己养团队：剪辑 <b>¥7,000</b> + 运营 <b>¥8,000</b> + 社保杂费，月支出约 <b>¥19,500</b>，还要带人、管人、人一走账号就断更。<br>
+        交给我们：<span class="hi">¥855/月</span> 起就有一条稳定内容线——脚本、拍摄、剪辑、口播、字幕全包，不用招人、不用管人、不怕断更。
+      </p>
+    </div>
+
     <div class="ret-grid">
       <div class="ret">
         <h5>测品版<span class="new-tag">新客95折</span></h5>
-        <div class="fit">新品测试 / 不寄样也能做</div>
+        <div class="fit">不寄样 · 先花小钱验证卖点</div>
         <div class="price">¥855<small> /月</small></div>
         <div class="was"><s>原价 ¥900</s> · 折合 ¥57/条</div>
-        <div class="diff">零拍摄 · 先验证哪个卖点能跑</div>
+        <div class="diff">零拍摄 · 有素材就能开工</div>
         <ul>
-          <li>纯剪 10 条 + AI 视频 5 条</li>
-          <li>客户提供素材或产品图</li>
-          <li>含选题建议 + 字幕包装</li>
-          <li>首批最快 7 天交付</li>
+          <li>纯剪 10 条 + AI 5 条，够你测 3 个卖点</li>
+          <li>不用寄样等物流，手上有素材立刻开</li>
+          <li>折合 ¥57/条，比请剪辑师一天还便宜</li>
+          <li>首批最快 7 天出片</li>
         </ul>
+        <div class="hook">先花几百块试方向，<b>跑通了再上拍摄</b>，不用一上来就压库存</div>
       </div>
       <div class="ret hot">
         <div class="badge">最多人选</div>
         <h5>起量版<span class="new-tag">新客95折</span></h5>
-        <div class="fit">稳定日更 / 只要产能</div>
+        <div class="fit">一天一条 · 把账号权重养起来</div>
         <div class="price">¥1,520<small> /月</small></div>
         <div class="was"><s>原价 ¥1,600</s> · 折合 ¥80/条</div>
         <div class="diff">室内单场景 · 保证不断更</div>
         <ul>
-          <li>拍摄 + 剪辑 20 条 / 月</li>
-          <li>室内单场景实拍 + 口播</li>
-          <li>含脚本 / 字幕 / 剪辑</li>
-          <li>每条 1 次免费修改</li>
+          <li>20 条实拍成片，正好一个月日更节奏</li>
+          <li>脚本 / 口播 / 字幕全包，你一个字不用写</li>
+          <li>折合 ¥80/条，比养个剪辑师省 5 倍</li>
+          <li>每条含 1 次免费修改</li>
         </ul>
+        <div class="hook">自己招一个剪辑月薪 7,000，这里 <b>1,520 就有一条内容线</b>，还不用交社保</div>
       </div>
       <div class="ret">
         <h5>放量版<span class="new-tag">新客95折</span></h5>
-        <div class="fit">爆款放大 / 要多版本测试</div>
+        <div class="fit">一条素材测 4 个开头 · 投流不瞎烧钱</div>
         <div class="price">¥3,800<small> /月</small></div>
         <div class="was"><s>原价 ¥4,000</s> · 折合 ¥76/条</div>
         <div class="diff">一批切 4 版 + 选题库 + 数据复盘</div>
         <ul>
-          <li>拍摄 + 剪辑 <b style="color:#fff">50 条</b> / 月</li>
-          <li>每批拍摄切 4 版（换开头 3 秒 / 机位 / 字幕 / BGM）</li>
-          <li>30 条/月选题库 + 爆款结构拆解</li>
-          <li>月度数据复盘 + 优先排期</li>
+          <li>50 条成片 = 12 批 × 4 版，测开头不用重拍</li>
+          <li>30 条/月选题库，不用每天愁拍什么</li>
+          <li>月度复盘告诉你哪条该加投、哪条砍掉</li>
+          <li>优先排期，旺季不被挤档</li>
         </ul>
+        <div class="hook">投流最烧钱的不是素材费，是<b>没测出爆款就硬投</b>——4 版切版让你一次拍摄测 4 个方向</div>
       </div>
       <div class="ret">
         <h5>矩阵版<span class="new-tag" style="background:var(--cyan)">多号 + 外语</span></h5>
-        <div class="fit">多账号矩阵 / 跨境多语区</div>
+        <div class="fit">3 个号一起起 · 外语版本直接打美区/日区</div>
         <div class="price" style="font-size:20px">价格协商</div>
         <div class="was">100 条以上 / 月</div>
         <div class="diff" style="color:#7ee8f5;background:rgba(34,211,238,.09);border-left-color:var(--cyan)">多号分发防判重 + 外语版本</div>
         <ul>
-          <li>拍摄 + 剪辑 <b style="color:#fff">100 条以上</b> / 月</li>
-          <li>多账号分发、同素材防判重</li>
-          <li>含英 / 日外语版本（配音 + 字幕）</li>
-          <li>专属对接人 + 周会 + 竞品排他</li>
+          <li>100 条以上，一次拍摄喂多个账号</li>
+          <li>换开头 / 字幕 / 配音，规避同质化限流</li>
+          <li>英 / 日配音 + 字幕，同一批货打两个市场</li>
+          <li>专属对接人 + 周会 + 同品类排他</li>
         </ul>
+        <div class="hook">单号做到天花板很快，<b>多号 + 外语才是放量</b>——同一批内容多卖一个国家</div>
       </div>
     </div>
     <p class="price-note">
